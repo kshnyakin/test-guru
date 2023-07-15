@@ -81,5 +81,3 @@ TestPassing.create!([
                       { passing_status: 'in_progress', user_id: sidorov_user.id, test_id: ruby_test.id },
                       { passing_status: 'passed',      user_id: sidorov_user.id, test_id: java_test.id }
                     ])
-
-binding.pry
