@@ -21,23 +21,23 @@ ivanov_user, petrov_user, sidorov_user =
 # Создание тестов
 ruby_test, java_test =
   backend_category.tests.create!([
-                                   { title: 'Ruby', level: 1, author_id: ivanov_user.id },
-                                   { title: 'Java', level: 2, author_id: petrov_user.id }
+                                   { title: 'Ruby', level: 1, author: ivanov_user },
+                                   { title: 'Java', level: 2, author: petrov_user }
                                  ])
 angular_test, bulma_test =
   frontend_category.tests.create!([
-                                    { title: 'Angular', level: 3, author_id: sidorov_user.id },
-                                    { title: 'Bulma', level: 1, author_id: ivanov_user.id }
+                                    { title: 'Angular', level: 3, author: sidorov_user },
+                                    { title: 'Bulma', level: 1, author: ivanov_user }
                                   ])
 kubernetis_test, gitlab_test =
   devops_category.tests.create!([
                                   { title: 'Kubernetis', level: 2,
-                                    author_id: petrov_user.id },
+                                    author: petrov_user },
                                   { title: 'Gitlab', level: 3,
-                                    author_id: sidorov_user.id }
+                                    author: sidorov_user }
                                 ])
 jira_test = management_category.tests.create!(
-  { title: 'Jira', level: 4, author_id: ivanov_user.id }
+  { title: 'Jira', level: 4, author: ivanov_user }
 )
 
 # Создание вопросов
@@ -91,17 +91,17 @@ q_kuber_pod_exec.answers.create!([
 
 # Создание прохождений тестов
 ivanov_user.test_passings.create!([
-                                    { passing_status: 'passed',      test_id: ruby_test.id },
-                                    { passing_status: 'in_progress', test_id: java_test.id },
-                                    { passing_status: 'passed',      test_id: angular_test.id }
+                                    { passing_status: 'passed',      test: ruby_test },
+                                    { passing_status: 'in_progress', test: java_test },
+                                    { passing_status: 'passed',      test: angular_test }
                                   ])
 petrov_user.test_passings.create!([
-                                    { passing_status: 'passed',      test_id: kubernetis_test.id },
-                                    { passing_status: 'in_progress', test_id: bulma_test.id },
-                                    { passing_status: 'in_progress', test_id: gitlab_test.id }
+                                    { passing_status: 'passed',      test: kubernetis_test },
+                                    { passing_status: 'in_progress', test: bulma_test },
+                                    { passing_status: 'in_progress', test: gitlab_test }
                                   ])
 sidorov_user.test_passings.create!([
-                                     { passing_status: 'passed', test_id: jira_test.id },
-                                     { passing_status: 'in_progress', test_id: ruby_test.id },
-                                     { passing_status: 'passed',      test_id: java_test.id }
+                                     { passing_status: 'passed', test: jira_test },
+                                     { passing_status: 'in_progress', test: ruby_test },
+                                     { passing_status: 'passed',      test: java_test }
                                    ])
