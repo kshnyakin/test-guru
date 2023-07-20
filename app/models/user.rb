@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # коммент для инициализации PR
   has_many :created_tests,
            class_name: 'Test',
            foreign_key: 'author_id',
