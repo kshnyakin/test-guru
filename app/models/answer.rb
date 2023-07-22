@@ -11,8 +11,8 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_quantity
-    binding.pry
-    # попробовать тут поймат action)))
+    return unless new_record? || (question.answers.pluck(:id).exclude? id)
+
     errors.add(:base) if question.answers.count > 3
   end
 end

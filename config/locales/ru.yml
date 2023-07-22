@@ -5,6 +5,5 @@ ru:
       models:
         answer:
           attributes:
-            invalid: У вопроса не может быть больше 4-х ответов
-
-
+            base:
+              invalid: У вопроса не может быть больше 4-х ответов
