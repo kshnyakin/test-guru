@@ -8,7 +8,11 @@ class Answer < ApplicationRecord
 
   scope :correct, -> { where(correct: true) }
 
+  private
+
   def validate_answers_quantity
+    binding.pry
+    # попробовать тут поймат action)))
     errors.add(:base) if question.answers.count > 3
   end
 end

@@ -6,9 +6,5 @@ ru:
         answer:
           attributes:
             invalid: У вопроса не может быть больше 4-х ответов
-        test:
-          attributes:
-            base:
-              invalid: Нельзя создать тест с одинаковыми названием и уровнем сложности
 
 
