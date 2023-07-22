@@ -11,8 +11,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :login, :email, presence: true
 
-  # не стал переписывать на scope т.к. это метод экземпляра класса,
-  # а scope - метод самого класса
   def tests_by_level(level)
     tests.where(level: level)
   end
