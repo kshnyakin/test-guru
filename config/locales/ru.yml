@@ -1,2 +1,9 @@
 ru:
   hello: "Привет, Мир"
+  activerecord:
+    errors:
+      models:
+        answer:
+          attributes:
+            base:
+              invalid: У вопроса не может быть больше 4-х ответов
