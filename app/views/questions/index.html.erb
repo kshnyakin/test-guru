@@ -1,0 +1,15 @@
+<h1>Список вопросов теста '<%= @test.title %>':</h1>
+
+<% if @questions.size < 1 %>
+ <p>Вопросы для данного теста пока еще не созданы</div>
+<% else %>
+  <ol>
+    <% @questions.each do |question| %>
+      <li>
+        <%= "#{question.title} (id = #{question.id})" %>
+        <%= link_to 'Delete', { controller: "questions", action: "destroy", id: question.id }, 
+          method: :delete, data: {confirm: "Are you sure?"} %>
+      </li>
+    <%end %>
+  </ol>
+<% end %>
