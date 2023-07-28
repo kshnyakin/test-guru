@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :tests, only: [] do
-    resources :questions, only: %i[index show new create destroy]
+  resources :test, shallow: true, only: [] do
+    resources :questions
   end
 end

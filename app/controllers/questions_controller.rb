@@ -1,40 +1,39 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :test
+  before_action :test, only: %i[create new index]
+  before_action :question, only: %i[destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
     @questions = @test.questions
-    respond_to do |format|
-      format.html
-      format.txt { render plain: @questions.inspect }
-    end
   end
 
   def create
-    question = @test.questions.create!(question_params)
-    render plain: "Вопрос (#{question.title}) был успешно создан"
+    @question = @test.questions.build(question_params)
+    if @question.save
+      redirect_to @question
+    else
+      render :new
+    end
   end
 
   def new; end
 
+  def update; end
+
   def show
-    @question = question_from_test_by_id(params[:id])
-    respond_to do |format|
-      format.html
-      format.txt { render plain: @question.inspect }
-    end
+    @question = Question.find(params[:id].to_i)
   end
 
   def destroy
-    question = question_from_test_by_id(params[:id])
-    if question
-      question.destroy
-      render plain: 'Вопрос был успешно удален'
+    if @question.destroy
+      flash[:success] = "The to-do item was successfully destroyed."
+      # redirect_to root_path
+      render plain: "Вопрос #{@question.title} успешно удален!"
     else
-      render plain: 'id вопроса для удаления не принадлежит данному тесту'
+      render file: "#{Rails.root}/public/500", status: :internal_server_error
     end
   end
 
@@ -44,9 +43,9 @@ class QuestionsController < ApplicationController
     @test ||= Test.find(params[:test_id].to_i)
   end
 
-  def question_from_test_by_id(id_string)
-    question = @test.questions.find_by(id: id_string.to_i)
-    raise ActiveRecord::RecordNotFound unless question
+  def question
+    @question = Question.find(params[:id].to_i)
+    raise ActiveRecord::RecordNotFound unless @question
   end
 
   def question_params
@@ -54,6 +53,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Вопрос с указанным ID не был найден'
+    render file: "#{Rails.root}/public/404", status: :not_found
   end
 end

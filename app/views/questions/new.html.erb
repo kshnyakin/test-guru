@@ -1,5 +1,5 @@
-<h1> Создание нового вопроса для теста <%= @test.title %></h1>
-<form action="<%= "/tests/#{@test.id}/questions" %>" method="post">
+<h1> Создание нового вопроса для теста '<%= @test.title %>'</h1>
+<form action="<%= "/test/#{@test.id}/questions" %>" method="post">
   <input name="authenticity_token" value ="<%= form_authenticity_token %>" type ="hidden">
   <p>
     <label for="question-title">Title</label>

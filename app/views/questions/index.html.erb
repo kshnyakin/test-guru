@@ -7,9 +7,12 @@
     <% @questions.each do |question| %>
       <li>
         <%= "#{question.title} (id = #{question.id})" %>
+        <%= link_to 'Show', question_path(question) %> |
         <%= link_to 'Delete', { controller: "questions", action: "destroy", id: question.id }, 
-          method: :delete, data: {confirm: "Are you sure?"} %>
+          method: :delete, data: {confirm: "Вы действительно хотите удалить вопрос '#{question.title}' (#{question.body})?"} %>
       </li>
     <%end %>
+    <hr>
   </ol>
 <% end %>
+<p><%= link_to 'Add new question', new_test_question_path %></p>

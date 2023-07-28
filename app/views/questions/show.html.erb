@@ -1,7 +1,7 @@
-<h1>Просмотр вопроса из теста '<%= @test.title %>':</h1>
+<h1>Просмотр вопроса из теста '<%= @question.test.title %>':</h1>
 
-<% if @question %>
-  <p><%= @question.title %></p>
-<% else %>
-  <p>Вопроса с таким идентификатором для данного теста не существует</p>
-<% end %>
+<p>Title: <%= @question.title %></p>
+<p>Body: <%= @question.body %></p>
+
+
+<%= link_to "Вернуться к вопросам теста", test_questions_url(@question.test_id) %>
