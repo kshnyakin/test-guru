@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :test, only: %i[create new index]
-  before_action :question, only: %i[destroy]
+  before_action :load_test, only: %i[create new index]
+  before_action :load_question, only: %i[destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -24,26 +24,22 @@ class QuestionsController < ApplicationController
   def update; end
 
   def show
-    @question = Question.find(params[:id].to_i)
+    @question = Question.find(params[:id])
   end
 
   def destroy
-    if @question.destroy
-      flash[:success] = "Вопрос #{@question.title} успешно удален!"
-    else
-      render file: Rails.root.join('public/500'), status: :internal_server_error
-    end
+    @question.destroy
+    redirect_to "/test/#{@question.test.id}/questions"
   end
 
   private
 
-  def test
-    @test ||= Test.find(params[:test_id].to_i)
+  def load_test
+    @test ||= Test.find(params[:test_id])
   end
 
-  def question
-    @question = Question.find(params[:id].to_i)
-    raise ActiveRecord::RecordNotFound unless @question
+  def load_question
+    @question = Question.find(params[:id])
   end
 
   def question_params
