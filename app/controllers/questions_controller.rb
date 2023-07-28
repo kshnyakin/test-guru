@@ -29,13 +29,10 @@ class QuestionsController < ApplicationController
 
   def destroy
     if @question.destroy
-      flash[:success] = "The to-do item was successfully destroyed."
-      # redirect_to root_path
-      render plain: "Вопрос #{@question.title} успешно удален!"
+      flash[:success] = "Вопрос #{@question.title} успешно удален!"
     else
-      render file: "#{Rails.root}/public/500", status: :internal_server_error
+      render file: Rails.root.join('public/500'), status: :internal_server_error
     end
-    # test
   end
 
   private
@@ -54,6 +51,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render file: "#{Rails.root}/public/404", status: :not_found
+    render file: Rails.root.join('public/404'), status: :not_found
   end
 end
