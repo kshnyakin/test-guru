@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
     else
       render file: "#{Rails.root}/public/500", status: :internal_server_error
     end
+    # test
   end
 
   private
