@@ -1,0 +1,12 @@
+<h1> Создание нового вопроса для теста '<%= @test.title %>'</h1>
+<form action="<%= "/test/#{@test.id}/questions" %>" method="post">
+  <input name="authenticity_token" value ="<%= form_authenticity_token %>" type ="hidden">
+  <p>
+    <label for="question-title">Title</label>
+    <input type="text" name="question[title]" id="question-title">
+  </p><br>
+    <label for="question-body">Body</label>
+    <input type="text" name="question[body]" id="question-body">
+  </p><br>
+  <input type="submit" value ="Create">
+</form>

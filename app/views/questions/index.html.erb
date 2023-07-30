@@ -1,0 +1,18 @@
+<h1>Список вопросов теста '<%= @test.title %>':</h1>
+
+<% if @questions.size < 1 %>
+ <p>Вопросы для данного теста пока еще не созданы</div>
+<% else %>
+  <ol>
+    <% @questions.each do |question| %>
+      <li>
+        <%= "#{question.title} (id = #{question.id})" %>
+        <%= link_to 'Show', question_path(question) %> |
+        <%= link_to 'Delete', { controller: "questions", action: "destroy", id: question.id }, 
+          method: :delete, data: {confirm: "Вы действительно хотите удалить вопрос '#{question.title}' (#{question.body})?"} %>
+      </li>
+    <%end %>
+    <hr>
+  </ol>
+<% end %>
+<p><%= link_to 'Add new question', new_test_question_path %></p>
