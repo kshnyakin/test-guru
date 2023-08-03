@@ -1,9 +1,15 @@
 <h1>Список вопросов теста '<%= @test.title %>':</h1>
-# Init Commit
 
 <% if @questions.size < 1 %>
  <p>Вопросы для данного теста пока еще не созданы</div>
 <% else %>
+  <table border="1">
+    <tr>
+      <th>Title</td>
+      <th>Body</td>
+    </tr>
+    <%= render @questions %>
+  </table>
   <ol>
     <% @questions.each do |question| %>
       <li>

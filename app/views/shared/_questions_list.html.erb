@@ -1,0 +1,9 @@
+<% if questions.size > 0 %>
+  <ol>
+    <% questions.each do |question| %>
+      <li><%= question.title %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>Вопросы к тесту еще не созданы</p>
+<% end %>

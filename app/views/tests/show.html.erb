@@ -1,0 +1,5 @@
+<h1>Тест "<%= @test.title %>"</h1>
+<p>Категория: <%= @test.category.title %></p>
+<p>Список вопросов теста:</p>
+<hr>
+<%= render 'shared/questions_list', questions: @test.questions %>
