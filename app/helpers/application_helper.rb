@@ -5,7 +5,10 @@ module ApplicationHelper
     Time.current.year
   end
 
-  def github_url(author, repo)
-    "https://github.com/#{author}/#{repo}"
+  def github_link(author, repo)
+    link_to repo,
+            "https://github.com/#{author}/#{repo}",
+            target: '_blank',
+            rel: 'nofollow noopener'
   end
 end

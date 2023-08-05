@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :load_test, only: %i[create new index]
-  before_action :load_question, only: %i[destroy]
+  before_action :load_test, only: %i[create new]
+  before_action :load_question, only: %i[show edit destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def create
-    @question = @test.questions.build(question_params)
+    @question = @test.questions.build(question_create_params)
     if @question.save
       redirect_to @question
     else
@@ -19,9 +15,20 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def new; end
+  def new
+    @test = Test.find(params[:test_id])
+  end
 
-  def update; end
+  def edit; end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_update_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
 
   def show
     @question = Question.find(params[:id])
@@ -29,7 +36,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to "/test/#{@question.test.id}/questions"
+    redirect_to test_path(@question.test)
   end
 
   private
@@ -42,8 +49,12 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def question_params
-    params.require(:question).permit(:title, :body)
+  def question_create_params
+    params.permit(:title, :body)
+  end
+
+  def question_update_params
+    params.require(:question).permit(:title, :body, :test_id)
   end
 
   def rescue_with_question_not_found

@@ -1,0 +1,11 @@
+<%= form_with model: model, url: action_url do |form| %>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %><br>
+
+  <%= form.label :body %><br>
+  <%= form.text_field :body %><br>
+
+  <%= form.hidden_field :test_id, value: test_id %>
+
+  <p><%= form.submit %></p>
+<% end %>

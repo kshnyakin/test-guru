@@ -1,5 +1,17 @@
 <h1>Тест "<%= @test.title %>"</h1>
-<p>Категория: <%= @test.category.title %></p>
+<p>
+  Категория: <%= @test.category.title %><br>
+  Сложность: <%= @test.level %>
+</p>
 <p>Список вопросов теста:</p>
-<hr>
-<%= render 'shared/questions_list', questions: @test.questions %>
+<% if @test.questions.present? %>
+  <%= render 'shared/questions_list', questions: @test.questions %>
+<% else %>
+  <p>Вопросы к тесту еще не созданы</p>
+<% end %>
+
+<p>
+  <%= link_to 'Добавить вопрос к тесту', new_test_question_path(@test) %> |
+  <%= link_to 'Редактировать тест', edit_test_path(@test) %> |
+  <%= link_to 'К списку всех тестов', root_path %>
+</p>
