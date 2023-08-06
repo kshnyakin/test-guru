@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :load_test, only: %i[show edit destroy]
+  before_action :load_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -9,7 +9,9 @@ class TestsController < ApplicationController
 
   def show; end
 
-  def new; end
+  def new
+    @test = Test.new
+  end
 
   def edit; end
 
@@ -19,8 +21,7 @@ class TestsController < ApplicationController
   end
 
   def update
-    @test = Test.find(params[:id])
-    if @test.update(test_update_params)
+    if @test.update(test_params)
       redirect_to @test
     else
       render :edit
@@ -28,7 +29,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_create_params)
+    @test = Test.new(test_params)
     if @test.save
       redirect_to @test
     else
@@ -38,12 +39,8 @@ class TestsController < ApplicationController
 
   private
 
-  def test_update_params
+  def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
-  end
-
-  def test_create_params
-    params.permit(:title, :level, :category_id, :author_id)
   end
 
   def load_test
