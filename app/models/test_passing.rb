@@ -5,4 +5,5 @@ class TestPassing < ApplicationRecord
   belongs_to :test
 
   validates :passing_status, presence: true
+  # init comment
 end
