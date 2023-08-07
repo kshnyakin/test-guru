@@ -1,0 +1,9 @@
+<%= form_with model: model, url: action_url do |form| %>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %><br>
+
+  <%= form.label :body %><br>
+  <%= form.text_field :body %><br>
+
+  <p><%= form.submit %></p>
+<% end %>

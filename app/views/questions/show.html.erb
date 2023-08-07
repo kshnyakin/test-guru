@@ -3,5 +3,5 @@
 <p>Title: <%= @question.title %></p>
 <p>Body: <%= @question.body %></p>
 
-
-<%= link_to "Вернуться к вопросам теста", test_questions_url(@question.test_id) %>
+<%= link_to "Редактировать вопрос", edit_question_path(@question) %>
+<%= link_to "Вернуться к вопросам теста", test_path(@question.test_id) %>
