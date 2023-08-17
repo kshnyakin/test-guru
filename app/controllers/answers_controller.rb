@@ -10,9 +10,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new
   end
 
-  def edit
-    flash[:notice] = 'You have successfully logged out.'
-  end
+  def edit; end
 
   def create
     @answer = @question.answers.build(answer_params)
@@ -47,6 +45,6 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:body, :correct).to_h
+    params.require(:answer).permit(:body, :correct)
   end
 end

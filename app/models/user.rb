@@ -19,7 +19,7 @@ class User < ApplicationRecord
     "#{last_name} #{first_name}"
   end
 
-  def test_passage(test)
-    test_passages.order(id: :desc).find_by(test_id: test.id)
+  def take_test_passing(test)
+    test_passings.order(id: :desc).find_by(test_id: test.id)
   end
 end

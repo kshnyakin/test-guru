@@ -39,11 +39,10 @@ ActiveRecord::Schema.define(version: 2023_08_09_212418) do
   create_table "test_passings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
-    t.string "passing_status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "correct_questions_counter", default: 0, null: false
-    t.integer "current_question_id", null: false
+    t.integer "current_question_id"
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"

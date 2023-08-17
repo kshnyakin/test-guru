@@ -6,7 +6,7 @@ class TestPassingsController < ApplicationController
   def show; end
 
   def update
-    @test_passing.accept!(permitted_params)
+    @test_passing.accept!(update_params)
     if @test_passing.completed?
       redirect_to result_test_passing_path(@test_passing)
     else
@@ -22,7 +22,7 @@ class TestPassingsController < ApplicationController
     @test_passing = TestPassing.find(params[:id])
   end
 
-  def permitted_params
-    params.require(:answer_ids)
+  def update_params
+    params.key?(:answer_ids) ? params.require(:answer_ids) : []
   end
 end

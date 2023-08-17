@@ -1,9 +1,12 @@
 <h1>Прохождение теста "<%= @test_passing.test.title %>"</h1>
+
 <%= question_informator(@test_passing) %>
+
 <p>
   Текущий вопрос:<%= @test_passing.current_question.title %><br>
   <%= @test_passing.current_question.body %><br>
 </p>
+
 <hr>
 <p>Варианты ответов:</p>
 

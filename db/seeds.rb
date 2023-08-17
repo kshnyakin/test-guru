@@ -128,26 +128,17 @@ q_kuber_pod_exec.answers.create!([
 
 # Создание прохождений тестов
 ivanov_user.test_passings.create!([
-                                    { passing_status: 'passed',      test: ruby_test,
-                                      current_question: ruby_test.questions.first },
-                                    { passing_status: 'in_progress', test: java_test,
-                                      current_question: java_test.questions.first },
-                                    { passing_status: 'passed',      test: angular_test,
-                                      current_question: angular_test.questions.first }
+                                    { test: ruby_test, current_question: ruby_test.questions.first },
+                                    { test: java_test, current_question: java_test.questions.first },
+                                    { test: angular_test, current_question: angular_test.questions.first }
                                   ])
 petrov_user.test_passings.create!([
-                                    { passing_status: 'passed',      test: kubernetis_test,
-                                      current_question: kubernetis_test.questions.first },
-                                    { passing_status: 'in_progress', test: bulma_test,
-                                      current_question: bulma_test.questions.first },
-                                    { passing_status: 'in_progress', test: gitlab_test,
-                                      current_question: gitlab_test.questions.first }
+                                    { test: kubernetis_test, current_question: kubernetis_test.questions.first },
+                                    { test: bulma_test, current_question: bulma_test.questions.first },
+                                    { test: gitlab_test, current_question: gitlab_test.questions.first }
                                   ])
 sidorov_user.test_passings.create!([
-                                     { passing_status: 'passed', test: jira_test,
-                                       current_question: jira_test.questions.first },
-                                     { passing_status: 'in_progress', test: ruby_test,
-                                       current_question: ruby_test.questions.first },
-                                     { passing_status: 'passed',      test: java_test,
-                                       current_question: java_test.questions.first }
+                                     { test: jira_test, current_question: jira_test.questions.first },
+                                     { test: ruby_test, current_question: ruby_test.questions.first },
+                                     { test: java_test, current_question: java_test.questions.first }
                                    ])
