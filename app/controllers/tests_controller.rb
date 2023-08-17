@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :load_test, only: %i[show edit update destroy]
+  before_action :load_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: %i[start]
 
   def index
     @tests = Test.all
@@ -37,6 +38,14 @@ class TestsController < ApplicationController
     end
   end
 
+  def start
+    test_passing = @user.test_passings.create!(
+      test: @test,
+      passing_status: 'in_progress'
+    )
+    redirect_to test_passing_path(test_passing)
+  end
+
   private
 
   def test_params
@@ -45,5 +54,9 @@ class TestsController < ApplicationController
 
   def load_test
     @test ||= Test.find(params[:id])
+  end
+
+  def set_user
+    @user = User.first
   end
 end

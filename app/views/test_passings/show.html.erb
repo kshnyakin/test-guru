@@ -1,0 +1,19 @@
+<h1>Прохождение теста "<%= @test_passing.test.title %>"</h1>
+<%= question_informator(@test_passing) %>
+<p>
+  Текущий вопрос:<%= @test_passing.current_question.title %><br>
+  <%= @test_passing.current_question.body %><br>
+</p>
+<hr>
+<p>Варианты ответов:</p>
+
+<%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers,
+    :id, :body, include_hidden: false do |box| %>
+    <p>
+      <%= box.check_box id: "answer_ids_#{box.object.id}" %>
+      <%= box.label %>
+    </p> 
+  <% end %>
+  <p><%= form.submit 'Next question' %></p>
+<% end %> 

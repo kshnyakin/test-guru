@@ -1,0 +1,15 @@
+<tr>
+  <td><%= answer.body %></td>
+  <td><%= answer.correct %></td>
+  <td><%= link_to 'show', answer_path(answer) %></td>
+  <td><%= link_to 'edit', edit_answer_path(answer) %></td>
+  <td>
+    <%= link_to 'Delete',
+      { controller: "answers", action: "destroy", id: answer.id }, 
+      method: :delete, 
+      data: {
+        confirm: "Вы действительно хотите удалить ответ '#{answer.body}' ?"
+      }
+    %>
+  </td>
+</tr>
