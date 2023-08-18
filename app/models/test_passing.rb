@@ -4,10 +4,11 @@ class TestPassing < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
-  before_validation :before_validation_set_first_question, on: :create
-  before_validation :before_validation_assign_next_question, on: :update
 
-  SUCCESS_RATIO = 85.freeze
+  before_validation :before_validation_set_current_question
+
+  SUCCESS_RATIO = 85
+
   def accept!(answer_ids)
     self.correct_questions_counter += 1 if correct_answer?(answer_ids)
     save!
@@ -52,6 +53,7 @@ class TestPassing < ApplicationRecord
   private
 
   def correct_answer?(answer_ids)
+    answer_ids.delete('')
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
@@ -64,15 +66,18 @@ class TestPassing < ApplicationRecord
   end
 
   def define_current_question_number
-    questions_arr = test.questions.order(:id).pluck(:id)
-    questions_arr.index(current_question_id) + 1
+    test
+      .questions
+      .order(:id)
+      .where('id <= ?', current_question.id)
+      .size
   end
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
-  end
-
-  def before_validation_assign_next_question
-    self.current_question = next_question
+  def before_validation_set_current_question
+    if current_question
+      self.current_question = next_question
+    elsif test.present?
+      self.current_question = test.questions.first
+    end
   end
 end

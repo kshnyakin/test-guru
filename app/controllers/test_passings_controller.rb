@@ -23,6 +23,6 @@ class TestPassingsController < ApplicationController
   end
 
   def update_params
-    params.key?(:answer_ids) ? params.require(:answer_ids) : []
+    params.require(:answer_ids)
   end
 end
