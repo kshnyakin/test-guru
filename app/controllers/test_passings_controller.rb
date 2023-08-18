@@ -23,6 +23,6 @@ class TestPassingsController < ApplicationController
   end
 
   def update_params
-    params.require(:answer_ids)
+    params[:answer_ids]
   end
 end
