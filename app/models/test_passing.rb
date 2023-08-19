@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class TestPassing < ApplicationRecord
+  SUCCESS_RATIO = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_current_question
-
-  SUCCESS_RATIO = 85
 
   def accept!(answer_ids)
     self.correct_questions_counter += 1 if correct_answer?(answer_ids)
@@ -20,19 +20,6 @@ class TestPassing < ApplicationRecord
 
   def successful?
     percentage >= SUCCESS_RATIO
-  end
-
-  def result_message(percentage)
-    text = ''
-    color = ''
-    if percentage >= SUCCESS_RATIO
-      text = "Поздравляем вас с прохождением теста! Процент прохождения: #{percentage}%"
-      color = 'green'
-    else
-      text = "К сожалению, тест не пройден. Процент прохождения: #{percentage}%"
-      color = 'red'
-    end
-    { text: text, color: color }
   end
 
   def percentage
@@ -53,8 +40,7 @@ class TestPassing < ApplicationRecord
   private
 
   def correct_answer?(answer_ids)
-    answer_ids = [] unless answer_ids
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
   def correct_answers
@@ -74,10 +60,10 @@ class TestPassing < ApplicationRecord
   end
 
   def before_validation_set_current_question
-    if current_question
-      self.current_question = next_question
-    elsif test.present?
-      self.current_question = test.questions.first
-    end
+    self.current_question = if new_record?
+                              test.questions.first
+                            else
+                              next_question
+                            end
   end
 end
