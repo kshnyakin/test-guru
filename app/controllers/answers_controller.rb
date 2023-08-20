@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
   def edit; end
 
   def create
+    # init comment
     @answer = @question.answers.build(answer_params)
     if @answer.save
       redirect_to @answer, notice: 'Answer was successfully created.'
