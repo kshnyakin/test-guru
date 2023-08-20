@@ -17,3 +17,6 @@ Things you may want to cover:
 * Конфигурация
 
 * Создание базы данных
+
+* Очистка базы данных:
+`$ rails db:seed:replant `

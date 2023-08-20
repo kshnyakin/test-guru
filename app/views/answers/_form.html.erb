@@ -1,0 +1,20 @@
+<%= form_with(model: answer, url: action_url ) do |form| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+      <ul>
+        <% answer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %><br>
+    <%= form.label :correct %><br>
+    <%= form.check_box :correct, id: :answer_correct %><br>
+    <%= form.submit %>
+  </div>
+<% end %>

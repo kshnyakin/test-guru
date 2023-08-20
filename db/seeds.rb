@@ -48,6 +48,22 @@ q_ruby_data_types, q_ruby_class_define =
                                 { title: 'Определение класса',
                                   body: 'Какой из перечисленных вариантов верный?' }
                               ])
+_q_java_data_types, _q_java_class_define =
+  java_test.questions.create!([
+                                { title: 'Типы данных в Java',
+                                  body: 'Какой из перечисленных вариантов верный?' },
+                                { title: 'Определение класса в Java',
+                                  body: 'Какой из перечисленных вариантов верный?' }
+                              ])
+
+_q_angular_about, _q_angular_work =
+  angular_test.questions.create!([
+                                   { title: 'Что такое Angular?',
+                                     body: 'Какой из перечисленных вариантов верный?' },
+                                   { title: 'В каком редакторе IDE можно программировать на Angular?',
+                                     body: 'Какой из перечисленных вариантов верный?' }
+                                 ])
+
 q_jira_my_tasks, _q_jira_team_tasks =
   jira_test.questions.create!([
                                 { title: 'Как посмотреть список своих задач?',
@@ -55,6 +71,15 @@ q_jira_my_tasks, _q_jira_team_tasks =
                                 { title: 'Как посмотреть список задач команды?',
                                   body: 'Какой из перечисленных вариантов верный?' }
                               ])
+
+_q_bulma_about, _q_bulma_history =
+  bulma_test.questions.create!([
+                                 { title: 'Что такое BULMA?',
+                                   body: 'Какой из перечисленных вариантов верный?' },
+                                 { title: 'История возникновения Framework?',
+                                   body: 'Какой из перечисленных вариантов верный?' }
+                               ])
+
 q_kuber_pods_quantity, q_kuber_pod_exec =
   kubernetis_test.questions.create!([
                                       {
@@ -66,6 +91,18 @@ q_kuber_pods_quantity, q_kuber_pod_exec =
                                         body: 'Какой из перечисленных вариантов верный?'
                                       }
                                     ])
+
+_q_gitlab_developer, _q_gitlab_about =
+  gitlab_test.questions.create!([
+                                  {
+                                    title: 'Кто создал Gitlab?',
+                                    body: 'Какой из перечисленных вариантов верный?'
+                                  },
+                                  {
+                                    title: 'Что такое Gitlab?',
+                                    body: 'Какой из перечисленных вариантов верный?'
+                                  }
+                                ])
 
 # Создание ответов
 q_ruby_data_types.answers.create!([
@@ -91,17 +128,17 @@ q_kuber_pod_exec.answers.create!([
 
 # Создание прохождений тестов
 ivanov_user.test_passings.create!([
-                                    { passing_status: 'passed',      test: ruby_test },
-                                    { passing_status: 'in_progress', test: java_test },
-                                    { passing_status: 'passed',      test: angular_test }
+                                    { test: ruby_test, current_question: ruby_test.questions.first },
+                                    { test: java_test, current_question: java_test.questions.first },
+                                    { test: angular_test, current_question: angular_test.questions.first }
                                   ])
 petrov_user.test_passings.create!([
-                                    { passing_status: 'passed',      test: kubernetis_test },
-                                    { passing_status: 'in_progress', test: bulma_test },
-                                    { passing_status: 'in_progress', test: gitlab_test }
+                                    { test: kubernetis_test, current_question: kubernetis_test.questions.first },
+                                    { test: bulma_test, current_question: bulma_test.questions.first },
+                                    { test: gitlab_test, current_question: gitlab_test.questions.first }
                                   ])
 sidorov_user.test_passings.create!([
-                                     { passing_status: 'passed', test: jira_test },
-                                     { passing_status: 'in_progress', test: ruby_test },
-                                     { passing_status: 'passed',      test: java_test }
+                                     { test: jira_test, current_question: jira_test.questions.first },
+                                     { test: ruby_test, current_question: ruby_test.questions.first },
+                                     { test: java_test, current_question: java_test.questions.first }
                                    ])
