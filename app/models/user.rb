@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+
+  include Auth
+
   has_many :created_tests,
            class_name: 'Test',
            foreign_key: 'author_id',
@@ -9,7 +12,7 @@ class User < ApplicationRecord
   has_many :test_passings, dependent: :destroy
   has_many :tests, through: :test_passings
 
-  validates :first_name, :last_name, :login, :email, presence: true
+  has_secure_password
 
   def tests_by_level(level)
     tests.where(level: level)
@@ -22,4 +25,6 @@ class User < ApplicationRecord
   def take_test_passing(test)
     test_passings.order(id: :desc).find_by(test_id: test.id)
   end
+
+
 end
