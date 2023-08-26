@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_test, only: %i[show edit update destroy start]
 
   def index
@@ -54,6 +55,6 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 end

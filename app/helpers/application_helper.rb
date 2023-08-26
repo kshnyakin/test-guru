@@ -11,4 +11,10 @@ module ApplicationHelper
             target: '_blank',
             rel: 'nofollow noopener'
   end
+
+  def flash_alert(flash)
+    return unless flash[:alert]
+
+    content_tag(:p, flash[:alert], class: 'flash alert')
+  end
 end

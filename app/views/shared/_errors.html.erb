@@ -1,1 +1,7 @@
-<p> Рендеринг ошибок, если они есть (дописать) </p>
+<% if resource.errors.size > 0 %>
+  <ul>
+    <% resource.errors.full_messages.each do |error| %>
+      <li><%= error.inspect %></li>
+    <% end %>
+  </ul>
+<% end %>

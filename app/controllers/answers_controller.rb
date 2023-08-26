@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_answer, only: %i[show edit update destroy]
   before_action :set_question, only: %i[new create]
 
@@ -13,7 +14,6 @@ class AnswersController < ApplicationController
   def edit; end
 
   def create
-    # init comment
     @answer = @question.answers.build(answer_params)
     if @answer.save
       redirect_to @answer, notice: 'Answer was successfully created.'

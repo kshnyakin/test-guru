@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :first_name,
       :last_name,
-      :login, 
+      :login,
       :email,
       :password,
       :password_confirmation
