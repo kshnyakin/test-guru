@@ -1,5 +1,9 @@
 <%= form_with url: sessions_path, local: true do |form| %>
-  <%= flash_alert(flash) %>
+  <% if flash.present? %>
+    <% flash.each do |key, value| %>
+      <%= flash_output(key, value) %>
+    <% end %>
+  <% end %>
   
   <%= form.label :email %><br>
   <%= form.text_field :email, id: :email %><br>

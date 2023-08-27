@@ -3,7 +3,7 @@
 class SessionsController < ApplicationController
   def new; end
 
-  def logout
+  def destroy
     session.delete(:user_id)
     redirect_to login_path
   end
@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to session[:url_return_to] || root_path
+      session.delete(:url_return_to)
     else
       flash.now[:alert] = 'Please, check your emal or password and try again'
       render :new
