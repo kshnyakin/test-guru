@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# init comment
 
 class SessionsController < ApplicationController
   def new; end
