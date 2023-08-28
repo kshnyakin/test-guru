@@ -1,9 +1,24 @@
 ru:
   hello: "Привет, Мир"
   activerecord:
+    attributes:
+      user:
+        first_name: Имя
+        last_name: Фамилия
+        email: Email
+        login: Логин
+        password: Пароль
+        passwrod_confirmation: Подтверждение пароля
     errors:
+      messages:
+        taken: уже используется в системе
+        blank: не может быть пустым
       models:
         answer:
           attributes:
             base:
               invalid: У вопроса не может быть больше 4-х ответов
+        user:
+          attributes:
+            email:
+              invalid: не соответствует формату

@@ -13,9 +13,12 @@ backend_category, frontend_category, devops_category, management_category, _hr_c
 # Создание пользователей
 ivanov_user, petrov_user, sidorov_user =
   User.create!([
-                 { first_name: 'Иван', last_name: 'Иванов', email: 'ivanov@some-yandex.ru', login: 'ivanov' },
-                 { first_name: 'Петр', last_name: 'Петров', email: 'petrov@some-google.com', login: 'petrov' },
-                 { first_name: 'Максим', last_name: 'Сидоров', email: 'sidorov@some-mail.ru', login: 'sidorov' }
+                 { first_name: 'Иван', last_name: 'Иванов', email: 'ivanov@some-yandex.ru', login: 'ivanov',
+                   password: '12345' },
+                 { first_name: 'Петр', last_name: 'Петров', email: 'petrov@some-google.com', login: 'petrov',
+                   password: '12345' },
+                 { first_name: 'Максим', last_name: 'Сидоров', email: 'sidorov@some-mail.ru', login: 'sidorov',
+                   password: '12345' }
                ])
 
 # Создание тестов

@@ -1,0 +1,15 @@
+<%= form_with url: sessions_path, local: true do |form| %>
+  <% if flash.present? %>
+    <% flash.each do |key, value| %>
+      <%= flash_output(key, value) %>
+    <% end %>
+  <% end %>
+  
+  <%= form.label :email %><br>
+  <%= form.text_field :email, id: :email %><br>
+
+  <%= form.label :password %><br>
+  <%= form.password_field :password, id: :password %><br>
+
+  <p><%= form.submit 'Enter' %></p>
+<% end %>

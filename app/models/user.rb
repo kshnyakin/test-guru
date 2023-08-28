@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passings
 
   validates :first_name, :last_name, :login, :email, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, if: -> { email.present? } }
+
+  has_secure_password
 
   def tests_by_level(level)
     tests.where(level: level)
