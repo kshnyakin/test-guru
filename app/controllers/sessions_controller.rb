@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to session[:url_return_to] || root_path
-      session.delete(:url_return_to)
+      redirect_to cookies['url_return_to'] || root_path
+      cookies.delete :url_return_to
     else
       flash.now[:alert] = 'Please, check your emal or password and try again'
       render :new

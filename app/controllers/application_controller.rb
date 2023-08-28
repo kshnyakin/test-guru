@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     return if current_user
 
-    session[:url_return_to] = request.path
+    cookies[:url_return_to] = request.path
     redirect_to login_path, alert: 'Please, pass the Authentication process'
   end
 
