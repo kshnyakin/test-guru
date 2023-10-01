@@ -1,4 +1,4 @@
-<%= form_with model: model, url: action_url do |form| %>
+<%= form_with model: [:admin, model], url: action_url do |form| %>
   <%= form.label :title %><br>
   <%= form.text_field :title %><br>
 

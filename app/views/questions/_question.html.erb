@@ -1,14 +1,14 @@
 <tr>
   <td><%= question.title %></td>
   <td><%= question.body %></td>
-  <td><%= link_to 'show', question_path(question) %></td>
-  <td><%= link_to 'edit', edit_question_path(question) %></td>
+  <td><%= link_to 'show', test_question_path(question) %></td>
+  <td><%= link_to 'edit', edit_test_question_path(question) %></td>
   <td>
     <%= link_to 'Delete',
-      { controller: "questions", action: "destroy", id: question.id }, 
+      test_question_path(question),
       method: :delete, 
       data: {
-        confirm: "Вы действительно хотите удалить тест '#{question.title}' ?"
+        confirm: "Вы действительно хотите удалить вопрос '#{question.title}' ?"
       }
     %>
   </td>

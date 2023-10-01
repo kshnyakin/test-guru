@@ -1,0 +1,16 @@
+<tr>
+  <td><%= test.title %></td>
+  <td><%= test.category.title %></td>
+  <td><%= test.questions.size %></td>
+  <td><%= link_to 'show', admin_test_path(test) %></td>
+  <td><%= link_to 'edit', edit_admin_test_path(test) %></td>
+  <td>
+    <%= link_to 'Delete',
+      admin_test_path(test),
+      method: :delete, 
+      data: {
+        confirm: "Вы действительно хотите удалить тест '#{test.title}' ?"
+      }
+    %>
+  </td>
+</tr>
