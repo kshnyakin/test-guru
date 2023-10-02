@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::QuestionsController < Admin::BaseController
   before_action :load_test, only: %i[create new]
   before_action :load_question, only: %i[show edit destroy]
 
@@ -10,7 +9,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to admin_test_question_path(@question)
     else
       render :new
     end
@@ -26,7 +25,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     else
       render :edit
     end
@@ -39,7 +38,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test)
+    redirect_to admin_test_path(@question.test)
   end
 
   private

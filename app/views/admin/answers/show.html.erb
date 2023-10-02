@@ -12,5 +12,5 @@
 <p><%="Ответ: #{@answer.body}"%></p>
 <p><%="Ответ верный? #{@answer.correct}"%></p>
 
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
-<%= link_to 'Назад к списку ответов', question_path(@answer.question) %>
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
+<%= link_to 'Назад к списку ответов', admin_question_path(@answer.question) %>

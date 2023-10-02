@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   root 'tests#index'
 
   resources :tests, only: :index do
-    resources :questions, only: %i[show edit update destroy new create] do
-      resources :answers, shallow: true, except: :index
-    end
-
     post :start, on: :member
   end
 
@@ -21,6 +17,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, only: %i[show edit update destroy new create] do
+        resources :answers, shallow: true, except: :index
+      end
+    end
   end
 end
