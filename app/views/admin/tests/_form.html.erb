@@ -7,8 +7,6 @@
 
   <%= form.label :category_id %><br>
   <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %><br>
-
-  <%= form.label :author_id %><br>
-  <%= form.collection_select :author_id, User.all, :id, :full_name, prompt: true %><br>
+  
   <p><%= form.submit %></p>
 <% end %>
