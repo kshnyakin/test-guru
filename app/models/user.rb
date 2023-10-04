@@ -31,4 +31,8 @@ class User < ApplicationRecord
   def take_test_passing(test)
     test_passings.order(id: :desc).find_by(test_id: test.id)
   end
+
+  def admin?
+    is_a?(Admin)
+  end
 end
