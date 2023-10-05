@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :tests do
-      resources :questions, shallow: true, only: %i[show edit update destroy new create] do
+      resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
     end
