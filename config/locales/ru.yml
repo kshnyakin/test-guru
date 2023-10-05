@@ -1,4 +1,5 @@
 ru:
+  init: Инициализация ветки
   hello: "Привет, Мир"
   activerecord:
     attributes:
