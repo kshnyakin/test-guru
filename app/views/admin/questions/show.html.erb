@@ -1,0 +1,16 @@
+<h1>Просмотр вопроса из теста '<%= @question.test.title %>':</h1>
+
+<p>Title: <%= @question.title %></p>
+<p>Body: <%= @question.body %></p>
+
+<p>Список ответов вопроса:</p>
+<% if @answers.present? %>
+  <%= render 'shared/answers_list', answers: @answers %>
+<% else %>
+  <p>Ответы к вопросу еще не созданы</p>
+<% end %>
+<p>
+  <%= link_to "Добавить ответ", new_admin_question_answer_path(@question) %><br>
+  <%= link_to "Редактировать вопрос", edit_admin_question_path(@question) %>
+  <%= link_to "Вернуться к вопросам теста", admin_test_path(@question.test_id) %>
+</p>

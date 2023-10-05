@@ -1,0 +1,6 @@
+<%= question_header( @question ) %>
+<%= render 'form', 
+  model: @question,
+  action_url: admin_question_path(@question),
+  test_id: @question.test.id
+%>

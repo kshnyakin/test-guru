@@ -1,0 +1,12 @@
+<%= form_with model: [:admin, model], url: action_url do |form| %>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %><br>
+
+  <%= form.label :level %><br>
+  <%= form.number_field :level %><br>
+
+  <%= form.label :category_id %><br>
+  <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %><br>
+  
+  <p><%= form.submit %></p>
+<% end %>

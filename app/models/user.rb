@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :confirmable,
+         :validatable
   has_many :created_tests,
            class_name: 'Test',
            foreign_key: 'author_id',
@@ -13,8 +20,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, if: -> { email.present? } }
 
-  has_secure_password
-
   def tests_by_level(level)
     tests.where(level: level)
   end
@@ -25,5 +30,9 @@ class User < ApplicationRecord
 
   def take_test_passing(test)
     test_passings.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 end

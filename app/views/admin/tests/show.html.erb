@@ -1,0 +1,18 @@
+<h1>Тест "<%= @test.title %>"</h1>
+<p>
+  Категория: <%= @test.category.title %><br>
+  Автор теста: <%= @test.author.first_name %>(<%= @test.author.email %>)<br>
+  Сложность: <%= @test.level %>
+</p>
+<p>Список вопросов теста:</p>
+<% if @test.questions.present? %>
+  <%= render 'shared/questions_list', questions: @test.questions %>
+<% else %>
+  <p>Вопросы к тесту еще не созданы</p>
+<% end %>
+
+<p>
+  <%= link_to 'Добавить вопрос к тесту', new_admin_test_question_path(@test) %> |
+  <%= link_to 'Редактировать тест', edit_admin_test_path(@test) %> |
+  <%= link_to 'К списку всех тестов', admin_tests_path %>
+</p>
