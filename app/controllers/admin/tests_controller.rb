@@ -34,6 +34,7 @@ class Admin::TestsController < Admin::BaseController
       redirect_to admin_test_path(@test), notice: t('.success')
     else
       render :new
+      # redirect_to new_admin_test_path, alert: t(@test.errors.full_messages)
     end
   end
 

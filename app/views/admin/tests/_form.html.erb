@@ -1,4 +1,6 @@
 <%= form_with model: [:admin, model], url: action_url do |form| %>
+  <%= render "shared/errors", resource: model %>
+
   <%= form.label :title %><br>
   <%= form.text_field :title %><br>
 
