@@ -1,5 +1,23 @@
 ru:
-  init: Инициализация ветки
+  helpers:
+    submit:
+      test:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+    label:
+      test:
+        title: 'Название'
+        level: 'Уровень сложности'
+        category_id: 'Категория'
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибок"
+
   hello: "Привет, Мир"
   activerecord:
     attributes:
@@ -23,3 +41,20 @@ ru:
           attributes:
             email:
               invalid: не соответствует формату
+  admin:
+    tests:
+      index:
+        header: 'Доступные тесты'
+      create:
+        success: 'Тест успешно создан'
+  
+  tests_mailer:
+    completed_test:
+      subject: "Вы только что завершили тест в системе TestGuru!"
+  
+  test_passings:
+    result:
+      header: "Тест \"%{title}\" успешно завершен!"
+  tests:
+    index:
+      header: 'Список тестов, доступных в системе'

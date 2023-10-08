@@ -1,4 +1,4 @@
-<h1>Страница результатов прохождения теста "<%= @test_passing.test.title %>" </h1>
+<h1><%= t('.header', title: @test_passing.test.title) %></h1>
 
 <h2>Результаты прохождения теста</h2>
 <%= test_result_message(@test_passing) %>
