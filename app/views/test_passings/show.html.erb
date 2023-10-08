@@ -1,14 +1,14 @@
-<h1>Прохождение теста "<%= @test_passing.test.title %>"</h1>
+<h1><%= t('.header', test_title: @test_passing.test.title) %></h1>
 
 <%= question_informator(@test_passing) %>
 
 <p>
-  Текущий вопрос:<%= @test_passing.current_question.title %><br>
+  <%= t('.current_question', question_title: @test_passing.current_question.title) %><br>
   <%= @test_passing.current_question.body %><br>
 </p>
 
 <hr>
-<p>Варианты ответов:</p>
+<p><%= t('.answers_variants') %>:</p>
 
 <%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers,
@@ -18,5 +18,5 @@
       <%= box.label %>
     </p> 
   <% end %>
-  <p><%= form.submit 'Next question' %></p>
+  <p><%= form.submit t('.next_question_button') %></p>
 <% end %> 

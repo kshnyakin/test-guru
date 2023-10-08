@@ -2,14 +2,14 @@
   <td><%= test.title %></td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
-  <td><%= link_to 'show', admin_test_path(test) %></td>
-  <td><%= link_to 'edit', edit_admin_test_path(test) %></td>
+  <td><%= link_to t('.show'), admin_test_path(test) %></td>
+  <td><%= link_to t('.edit'), edit_admin_test_path(test) %></td>
   <td>
-    <%= link_to 'Delete',
+    <%= link_to t('.delete'),
       admin_test_path(test),
       method: :delete, 
       data: {
-        confirm: "Вы действительно хотите удалить тест '#{test.title}' ?"
+        confirm: t('.delete_confirmation', test_title: test.title)
       }
     %>
   </td>

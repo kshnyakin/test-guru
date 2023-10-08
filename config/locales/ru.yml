@@ -10,6 +10,12 @@ ru:
         level: 'Уровень сложности'
         category_id: 'Категория'
 
+  view_helpers:
+    test_passing:
+      question_info_string: "Вопрос № %{current_question} из %{total_questions}"
+      passing_success: "Поздравляем с прохождением теста! Процентр прохождения: %{passing_percentage}%."
+      passing_fail: "Сожалеем, но тест не пройден! Процент прохождения: %{passing_percentage}%."
+
   shared:
     errors:
       header:
@@ -17,6 +23,10 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибок"
+    questions_list:
+      title: "Название"
+      body: "Тело вопроса"
+      actions: "Действия" 
 
   hello: "Привет, Мир"
   activerecord:
@@ -27,7 +37,7 @@ ru:
         email: Email
         login: Логин
         password: Пароль
-        passwrod_confirmation: Подтверждение пароля
+        password_confirmation: Подтверждение пароля
     errors:
       messages:
         taken: уже используется в системе
@@ -42,19 +52,72 @@ ru:
             email:
               invalid: не соответствует формату
   admin:
+    nav:
+      admin_panel: "TestGuru: Административная панель"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
     tests:
       index:
         header: 'Доступные тесты'
+        create_test: "Создать тест"
+        title: "Название"
+        category: "Категория"
+        questions_size: "Количество вопросов"
+        actions: "Действия"
+        no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
       create:
         success: 'Тест успешно создан'
-  
+      test:
+        show: "Просмотр"
+        edit: "Редактирование"
+        delete: "Удаление"
+        delete_confirmation: "Вы действительно хотите удалить тест: '%{test.title} ?"
+      show:
+        category: "Категория"
+        test_author: "Автор"
+        complexity: "Сложность"
+        questions_list: "Список вопросов теста"
+        no_questions_yet: "Вопросы к тесту еще не созданы"
+        add_question: "Добавить вопрос к тесту"
+        edit_test: "Редактировать тест"
+        tests_list: "К списку тестов"
+
+      form:
+        categories:
+          backend: "Бэкенд"
+    questions:
+      question:
+        show: "Просмотр"
+        edit: "Редактирование"
+        delete: "Удаление"
+        delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
+
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"
   
-  test_passings:
-    result:
-      header: "Тест \"%{title}\" успешно завершен!"
   tests:
     index:
       header: 'Список тестов, доступных в системе'
+      title: "Название"
+      category: "Категория"
+      questions_size: "Количество вопросов"
+      actions: "Действия"
+      no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
+    test:
+      start_button: "Начать прохождение теста"
+  test_passings:
+    result:
+      back_to_tests_list: "Вернуться к списку тестов"
+      header: "Тест \"%{title}\" успешно завершен!"
+      test_passing:result: "Результаты прохождения теста"
+      total_questions: "Общее количество вопросов: %{questions_size}"
+      success_questions: "Количество правильных ответов: %{questions_size}"
+      
+    show:
+      header: "Прохождение теста \"%{test_title}\""
+      current_question: "Текущий вопрос: %{question_title}"
+      answers_variants: "Варианты ответов"
+      next_question_button: "Следующий вопрос"
+
+
