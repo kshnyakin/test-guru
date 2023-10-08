@@ -1,5 +1,7 @@
 en:
   helpers:
+    select:
+      prompt: "Select test category"
     submit:
       test:
         create: 'Create test'
@@ -17,6 +19,11 @@ en:
       passing_fail: "Sorry, but test is not passed! Passing_percentage is %{passing_percentage}%."
 
   shared:
+    footer:
+      thinknetica_school: "Study project in online-school Thinknetica"
+      project_description: |
+        Project allow create tests with question on several catgories.
+        Manage test-passing process for users. Evaluate test passing and results.
     errors:
       header:
         one: "%{count} error detected"

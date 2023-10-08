@@ -4,14 +4,9 @@
 <p>
   <%= current_year %>, <%= github_link('kshnyakin', repo) %>
 </p>
+<p><%= t('.project_description') %></p>
 <p>
-  Проект реализует возможность создания тестов с вопросами 
-  по определенным категориям.<br>
-  Управление прохождением пользователем тестов.<br>
-  Оценка прохождения тестов и результаты.<br>
-</p>
-<p>
-  <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 
+  <%= link_to t('.thinknetica_school'), 
     'https://thinknetica.com', 
     target: "_blank", 
     rel: 'nofollow'
