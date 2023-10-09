@@ -1,8 +1,8 @@
 <table border="1">
   <tr>
-    <th>Title</td>
-    <th>Body</td>
-    <th colspan="3">Actions</th>
+    <th><%= t('.title') %></td>
+    <th><%= t('.body') %></td>
+    <th colspan="3"><%= t('.actions') %></th>
   </tr>
   <%= render partial: 'admin/questions/question', collection: questions %>
 </table>

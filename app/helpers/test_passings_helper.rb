@@ -8,7 +8,9 @@ module TestPassingsHelper
 
   def question_informator(test_passing)
     info = test_passing.question_progress_info
-    text = "Вопрос № #{info[:current_question_number]} из #{info[:questions_size]}"
+    text = t('view_helpers.test_passing.question_info_string',
+             current_question: info[:current_question_number],
+             total_questions: info[:questions_size])
     content_tag(:p, text)
   end
 
@@ -18,10 +20,14 @@ module TestPassingsHelper
     text = ''
     color = ''
     if test_passing.successful?
-      text = "Поздравляем вас с прохождением теста! Процент прохождения: #{test_passing.percentage}%"
+      text = t(
+        'view_helpers.test_passing.passing_success', passing_percentage: test_passing.percentage
+      )
       color = 'green'
     else
-      text = "К сожалению, тест не пройден. Процент прохождения: #{test_passing.percentage}%"
+      text = t(
+        'view_helpers.test_passing.passing_fail', passing_percentage: test_passing.percentage
+      )
       color = 'red'
     end
     { text: text, color: color }

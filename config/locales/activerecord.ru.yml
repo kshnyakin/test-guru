@@ -1,0 +1,31 @@
+ru:
+  activerecord:
+    models:
+      test: 'Тест'
+      
+    attributes:
+      test:
+        title: 'Название'
+        category: 'Категория'
+        level: "Уровень сложности"
+      user:
+        first_name: Имя
+        last_name: Фамилия
+        email: Email
+        login: Логин
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+
+    errors:
+      messages:
+        taken: уже используется в системе
+        blank: не может быть пустым
+      models:
+        answer:
+          attributes:
+            base:
+              invalid: У вопроса не может быть больше 4-х ответов
+        user:
+          attributes:
+            email:
+              invalid: не соответствует формату

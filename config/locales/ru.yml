@@ -1,24 +1,137 @@
 ru:
-  hello: "Привет, Мир"
-  activerecord:
-    attributes:
+  helpers:
+    select:
+      prompt: "Выберите категорию теста"
+    submit:
+      test:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+    label:
+      test:
+        title: 'Название'
+        level: 'Уровень сложности'
+        category_id: 'Категория'
       user:
-        first_name: Имя
-        last_name: Фамилия
-        email: Email
-        login: Логин
-        password: Пароль
-        passwrod_confirmation: Подтверждение пароля
+        remember_me: "Запомнить меня"
+
+  view_helpers:
+    test_passing:
+      question_info_string: "Вопрос № %{current_question} из %{total_questions}"
+      passing_success: "Поздравляем с прохождением теста! Процентр прохождения: %{passing_percentage}%."
+      passing_fail: "Сожалеем, но тест не пройден! Процент прохождения: %{passing_percentage}%."
+
+  shared:
+    footer:
+      thinknetica_school: "Учебный проект в онлайн-школе Thinknetica"
+      project_description: |
+        Проект реализует возможность создания тестов с вопросами по определенным категориям.
+        Управление прохождением пользователем тестов. Оценка прохождения тестов и результаты.
     errors:
-      messages:
-        taken: уже используется в системе
-        blank: не может быть пустым
-      models:
-        answer:
-          attributes:
-            base:
-              invalid: У вопроса не может быть больше 4-х ответов
-        user:
-          attributes:
-            email:
-              invalid: не соответствует формату
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибок"
+    questions_list:
+      title: "Название"
+      body: "Тело вопроса"
+      actions: "Действия" 
+
+  hello: "Привет, Мир"
+
+  admin:
+    nav:
+      admin_panel: "TestGuru: Административная панель"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
+    tests:
+      new:
+        header: "Создание нового теста"
+      index:
+        header: 'Доступные тесты'
+        create_test: "Создать тест"
+        title: "Название"
+        category: "Категория"
+        questions_size: "Количество вопросов"
+        actions: "Действия"
+        no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
+      create:
+        success: 'Тест успешно создан'
+      test:
+        show: "Просмотр"
+        edit: "Редактирование"
+        delete: "Удаление"
+        delete_confirmation: "Вы действительно хотите удалить тест: '%{test.title} ?"
+      show:
+        category: "Категория"
+        test_author: "Автор"
+        complexity: "Сложность"
+        questions_list: "Список вопросов теста"
+        no_questions_yet: "Вопросы к тесту еще не созданы"
+        add_question: "Добавить вопрос к тесту"
+        edit_test: "Редактировать тест"
+        tests_list: "К списку тестов"
+      form:
+        categories:
+          backend: "Бэкенд"
+    questions:
+      question:
+        show: "Просмотр"
+        edit: "Редактирование"
+        delete: "Удаление"
+        delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы только что завершили тест в системе TestGuru!"
+  
+  users:
+    passwords:
+      new:
+        header: "Зaбыли пароль?"
+        resend_button: "Переотправить инструкции по сбросу пароля"
+    confirmations:
+      new:
+        header: "Переотправка инструкций по подтверждению"
+        resend_button: "Переотправить инструкции по подтверждению"
+    registrations:
+      new:
+        header: "Станьте Гуру!"
+        signup_button: "Зарегистрироваться"
+        minimum_caracters: "%{symbols_quantity} символов минимум"
+    sessions:
+      new:
+        login_header: "Вход во врата Guru!"
+        login_button: "Войти"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Зарегистрироваться"
+        forgot_password: "Забыли пароль?"
+        not_recieve_confirmation_instructions: "Не получили инструкции по подтверждению?"
+        not_recieve_unlock_instructions: "Не получили инструкции по разблокировке?"
+  tests:
+    index:
+      header: 'Список тестов, доступных в системе'
+      title: "Название"
+      category: "Категория"
+      questions_size: "Количество вопросов"
+      actions: "Действия"
+      no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
+    test:
+      start_button: "Начать прохождение теста"
+  test_passings:
+    result:
+      back_to_tests_list: "Вернуться к списку тестов"
+      header: "Тест \"%{title}\" успешно завершен!"
+      test_passing:result: "Результаты прохождения теста"
+      total_questions: "Общее количество вопросов: %{questions_size}"
+      success_questions: "Количество правильных ответов: %{questions_size}"
+      
+    show:
+      header: "Прохождение теста \"%{test_title}\""
+      current_question: "Текущий вопрос: %{question_title}"
+      answers_variants: "Варианты ответов"
+      next_question_button: "Следующий вопрос"
+
+
