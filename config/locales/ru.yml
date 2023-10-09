@@ -11,6 +11,8 @@ ru:
         title: 'Название'
         level: 'Уровень сложности'
         category_id: 'Категория'
+      user:
+        remember_me: "Запомнить меня"
 
   view_helpers:
     test_passing:
@@ -36,34 +38,15 @@ ru:
       actions: "Действия" 
 
   hello: "Привет, Мир"
-  activerecord:
-    attributes:
-      user:
-        first_name: Имя
-        last_name: Фамилия
-        email: Email
-        login: Логин
-        password: Пароль
-        password_confirmation: Подтверждение пароля
-    errors:
-      messages:
-        taken: уже используется в системе
-        blank: не может быть пустым
-      models:
-        answer:
-          attributes:
-            base:
-              invalid: У вопроса не может быть больше 4-х ответов
-        user:
-          attributes:
-            email:
-              invalid: не соответствует формату
+
   admin:
     nav:
       admin_panel: "TestGuru: Административная панель"
       welcome: "Добро пожаловать"
       logout: "Выйти"
     tests:
+      new:
+        header: "Создание нового теста"
       index:
         header: 'Доступные тесты'
         create_test: "Создать тест"
@@ -88,7 +71,6 @@ ru:
         add_question: "Добавить вопрос к тесту"
         edit_test: "Редактировать тест"
         tests_list: "К списку тестов"
-
       form:
         categories:
           backend: "Бэкенд"
@@ -103,6 +85,31 @@ ru:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"
   
+  users:
+    passwords:
+      new:
+        header: "Зaбыли пароль?"
+        resend_button: "Переотправить инструкции по сбросу пароля"
+    confirmations:
+      new:
+        header: "Переотправка инструкций по подтверждению"
+        resend_button: "Переотправить инструкции по подтверждению"
+    registrations:
+      new:
+        header: "Станьте Гуру!"
+        signup_button: "Зарегистрироваться"
+        minimum_caracters: "%{symbols_quantity} символов минимум"
+    sessions:
+      new:
+        login_header: "Вход во врата Guru!"
+        login_button: "Войти"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Зарегистрироваться"
+        forgot_password: "Забыли пароль?"
+        not_recieve_confirmation_instructions: "Не получили инструкции по подтверждению?"
+        not_recieve_unlock_instructions: "Не получили инструкции по разблокировке?"
   tests:
     index:
       header: 'Список тестов, доступных в системе'

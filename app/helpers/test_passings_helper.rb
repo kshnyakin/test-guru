@@ -8,10 +8,9 @@ module TestPassingsHelper
 
   def question_informator(test_passing)
     info = test_passing.question_progress_info
-    text = t('view_helpers.test_passing.question_info_string', 
-      current_question: info[:current_question_number],
-      total_questions: info[:questions_size]
-    )
+    text = t('view_helpers.test_passing.question_info_string',
+             current_question: info[:current_question_number],
+             total_questions: info[:questions_size])
     content_tag(:p, text)
   end
 

@@ -35,22 +35,14 @@ en:
 
   hello: "Hello world"
 
-  activerecord:
-    attributes:
-      user:
-        first_name: First name
-        last_name: Last name
-        email: Email
-        login: Login
-        password: Password
-        password_confirmation: Password confirmation
-
   admin:
     nav:
       admin_panel: "TestGuru: Admin Panel"
       welcome: "Welcome"
       logout: "Logout"
     tests:
+      new:
+        header: "New test creating"
       index:
         header: 'Tricky tests'
         create_test: "Create test"
@@ -85,6 +77,25 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  users:
+    passwords:
+      new:
+        header: "Forgot Password?"
+        resend_button: "Resend rest password instructions"
+    confirmations:
+      new:
+        header: "Resending confirmation instructions"
+        resend_button: "Resend confirmation instructions"
+    registrations:
+      new:
+        header: "Become a Guru!"
+        minimum_caracters: "%{symbols_quantity} symbols minimum"
+        signup_button: "Register"
+    sessions:
+      new:
+        login_header: "Enter the Guru gates!"
+        login_button: "Enter"
 
   tests:
     index:
