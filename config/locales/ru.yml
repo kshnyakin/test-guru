@@ -21,6 +21,9 @@ ru:
       passing_fail: "Сожалеем, но тест не пройден! Процент прохождения: %{passing_percentage}%."
 
   shared:
+    nav:
+      login_link: "Войти"
+      sign_in_link: "Зарегистрироваться"
     footer:
       thinknetica_school: "Учебный проект в онлайн-школе Thinknetica"
       project_description: |

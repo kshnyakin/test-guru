@@ -19,6 +19,9 @@ en:
       passing_fail: "Sorry, but test is not passed! Passing_percentage is %{passing_percentage}%."
 
   shared:
+    nav:
+      login_link: "Log in"
+      sign_in_link: "Sign in"
     footer:
       thinknetica_school: "Study project in online-school Thinknetica"
       project_description: |
