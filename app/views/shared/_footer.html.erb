@@ -1,14 +1,15 @@
-<hr>
-<hr>
-<% repo = 'test-guru' %>
-<p>
-  <%= current_year %>, <%= github_link('kshnyakin', repo) %>
-</p>
-<p><%= t('.project_description') %></p>
-<p>
-  <%= link_to t('.thinknetica_school'), 
-    'https://thinknetica.com', 
-    target: "_blank", 
-    rel: 'nofollow'
-  %>
-</p>
+<div class="row">
+  <hr class="border border-primary border-3 opacity-75">
+  <% repo = 'test-guru' %>
+  <p>
+    <%= current_year %>, <%= github_link('kshnyakin', repo) %>
+  </p>
+  <p><%= t('.project_description') %></p>
+  <p>
+    <%= link_to t('.thinknetica_school'), 
+      'https://thinknetica.com', 
+      target: "_blank", 
+      rel: 'nofollow'
+    %>
+  </p>
+<div class="row">

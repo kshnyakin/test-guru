@@ -2,7 +2,10 @@
   <%= link_to 'Test-Guru', root_path, class: 'navbar-brand' %>
   <span class="navbar-text">
     <% if user_signed_in? %>
-      <p class="nav user">
+      <% if current_user.admin? %>
+        <%= link_to 'AdminPanel', admin_tests_path %>
+      <% end %>
+      <p>
         Welcome, <b><%= current_user.email %></b>&nbsp Guru
         (<%= link_to 'Logout', destroy_user_session_path, method: :delete %>)
       </p>
