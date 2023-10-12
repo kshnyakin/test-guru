@@ -20,5 +20,3 @@ Things you may want to cover:
 
 * Очистка базы данных:
 `$ rails db:seed:replant `
-
-Bootstrap Init
