@@ -11,8 +11,4 @@ module ApplicationHelper
             target: '_blank',
             rel: 'nofollow noopener'
   end
-
-  def flash_output(key, value)
-    content_tag(:p, value, class: "flash #{key}")
-  end
 end

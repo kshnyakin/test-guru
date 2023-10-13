@@ -1,16 +1,18 @@
-<h3><%= t('.header') %></h3>
+<div class="row">
+  <h3><%= t('.header') %></h3>
 
-<% if @tests.present? %>
-  <table border="1">
-    <tr>
-      <th><%= t('.title') %></th>
-      <th><%= t('.category') %></th>
-      <th><%= t('.questions_size') %></th>
-      <th colspan='3'><%= t('.actions') %></th>
-    </tr>
-  <%= render @tests %>
-  </table>
-<% else %>
-  <p><%= t('.no_questions_yet') %></p>
-<% end %>
-<p><%= link_to t('.create_test'), new_admin_test_path %></p>
+  <% if @tests.present? %>
+    <table class="table table-hover">
+      <tr>
+        <th><%= t('.title') %></th>
+        <th><%= t('.category') %></th>
+        <th><%= t('.questions_size') %></th>
+        <th colspan='3'><%= t('.actions') %></th>
+      </tr>
+    <%= render @tests %>
+    </table>
+  <% else %>
+    <p><%= t('.no_questions_yet') %></p>
+  <% end %>
+  <p><%= link_to t('.create_test'), new_admin_test_path, class: 'btn btn-primary' %></p>
+</div>
