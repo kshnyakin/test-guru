@@ -122,5 +122,8 @@ en:
       current_question: "Current question: %{question_title}"
       answers_variants: "Answers variants"
       next_question_button: "Next question"
+    gist:
+      success: "Gist successfully saved! (<a href='%{url}'>link on gist</a>)"
+      failure: "An error occuredhile savin gist"
 
 

@@ -130,6 +130,9 @@ ru:
       test_passing:result: "Результаты прохождения теста"
       total_questions: "Общее количество вопросов: %{questions_size}"
       success_questions: "Количество правильных ответов: %{questions_size}"
+    gist:
+      success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
+      failure: "При сохранении Gist произошла ошибка"
       
     show:
       header: "Прохождение теста \"%{test_title}\""
