@@ -1,12 +1,11 @@
-class GitHubClient
-  ACCESS_TOKEN =  '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'.freeze
+# frozen_string_literal: true
 
+class GitHubClient
   def initialize
-    @client = Octokit::Client.new(:bearer_token => ACCESS_TOKEN)
+    @client = Octokit::Client.new(bearer_token: ENV['OCTOKIT_TEST_GITHUB_TOKEN'])
   end
 
   def create_gist(params)
     @client.create_gist(params.to_json)
   end
-
 end

@@ -22,13 +22,13 @@ class TestPassingsController < ApplicationController
     current_question = @test_passing.current_question
     result = GistQuestionService.new(current_question).call
     flash_options = if result.nil?
-      {notice: t('.failure')}
-    else
-      {notice: t('.success', url: result.html_url)}
-    end
+                      { notice: t('.failure') }
+                    else
+                      { notice: t('.success', url: result.html_url) }
+                    end
 
     redirect_to @test_passing, flash_options
-  end 
+  end
 
   private
 
