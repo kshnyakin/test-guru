@@ -51,7 +51,8 @@ ru:
       new:
         header: "Создание нового теста"
       index:
-        header: 'Доступные тесты'
+        header_tests: 'Список тестов, доступных в системе'
+        header_gists: "Список созданных Gists"
         create_test: "Создать тест"
         title: "Название"
         category: "Категория"
@@ -121,6 +122,10 @@ ru:
       questions_size: "Количество вопросов"
       actions: "Действия"
       no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
+      no_gists_yet: "В настоящий момент в системе не создано ни одного Gist"
+      gist_url: "Ссылка на Gist"
+      gist_question: "Вопрос"
+      gist_user_email: "Пользователь (email)" 
     test:
       start_button: "Начать прохождение теста"
   test_passings:

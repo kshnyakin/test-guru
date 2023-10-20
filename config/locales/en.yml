@@ -47,13 +47,18 @@ en:
       new:
         header: "New test creating"
       index:
-        header: 'Tricky tests'
+        header_tests: "List of available tests in system"
+        header_gists: "List of created Gists"
         create_test: "Create test"
         title: "Title"
         category: "Category"
         questions_size: "Questions size"
         actions: "Actions"
         no_questions_yet: "No created tests in system yet"
+        no_gists_yet: "No created gists in system yet"
+        gist_url: "Link to Gist"
+        gist_question: "Question"
+        gist_user_email: "User (email)" 
       create:
         success: 'Test was successfully created'
       test:

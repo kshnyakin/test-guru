@@ -15,6 +15,7 @@ class User < ApplicationRecord
            inverse_of: :author
   has_many :test_passings, dependent: :destroy
   has_many :tests, through: :test_passings
+  has_many :gists, dependent: :destroy
 
   validates :first_name, :last_name, :login, :email, presence: true
   validates :email, uniqueness: true

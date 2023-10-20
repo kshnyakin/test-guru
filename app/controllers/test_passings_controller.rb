@@ -21,6 +21,7 @@ class TestPassingsController < ApplicationController
   def gist
     current_question = @test_passing.current_question
     result = GistQuestionService.new(current_question).call
+    creating_gist(result, current_question)
     flash_options = if result.nil?
                       { notice: t('.failure') }
                     else
@@ -39,5 +40,13 @@ class TestPassingsController < ApplicationController
 
   def update_params
     params[:answer_ids]
+  end
+
+  def creating_gist(github_result, current_question)
+    Gist.create!({
+      user: current_user,
+      question: current_question,
+      url: github_result.html_url
+    })
   end
 end
