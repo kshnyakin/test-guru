@@ -8,7 +8,11 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    result = @client.create_gist(gist_params)
+    OpenStruct.new(
+      'response' => result,
+      'success?' => result.nil? ? false : true
+    )
   end
 
   private
@@ -25,8 +29,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
   end
 end

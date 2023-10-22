@@ -19,7 +19,6 @@ ru:
       question_info_string: "Вопрос № %{current_question} из %{total_questions}"
       passing_success: "Поздравляем с прохождением теста! Процентр прохождения: %{passing_percentage}%."
       passing_fail: "Сожалеем, но тест не пройден! Процент прохождения: %{passing_percentage}%."
-
   shared:
     nav:
       login_link: "Войти"
@@ -84,7 +83,9 @@ ru:
         edit: "Редактирование"
         delete: "Удаление"
         delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
-
+    gists:
+      success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
+      failure: "При сохранении Gist произошла ошибка"
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"
@@ -135,14 +136,9 @@ ru:
       test_passing:result: "Результаты прохождения теста"
       total_questions: "Общее количество вопросов: %{questions_size}"
       success_questions: "Количество правильных ответов: %{questions_size}"
-    gist:
-      success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
-      failure: "При сохранении Gist произошла ошибка"
-      
+
     show:
       header: "Прохождение теста \"%{test_title}\""
       current_question: "Текущий вопрос: %{question_title}"
       answers_variants: "Варианты ответов"
       next_question_button: "Следующий вопрос"
-
-

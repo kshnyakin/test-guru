@@ -2,7 +2,7 @@
 
 class TestPassingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test_passing, only: %i[show update result gist]
+  before_action :set_test_passing, only: %i[show update result]
 
   def show; end
 
@@ -18,35 +18,14 @@ class TestPassingsController < ApplicationController
 
   def result; end
 
-  def gist
-    current_question = @test_passing.current_question
-    result = GistQuestionService.new(current_question).call
-    creating_gist(result, current_question)
-    flash_options = if result.nil?
-                      { notice: t('.failure') }
-                    else
-                      { notice: t('.success', url: result.html_url) }
-                    end
-
-    redirect_to @test_passing, flash_options
-  end
-
   private
 
   def set_test_passing
-    id = params[:id] || params[:test_passing_id]
+    id = params[:id]
     @test_passing = TestPassing.find(id)
   end
 
   def update_params
     params[:answer_ids]
-  end
-
-  def creating_gist(github_result, current_question)
-    Gist.create!({
-      user: current_user,
-      question: current_question,
-      url: github_result.html_url
-    })
   end
 end
