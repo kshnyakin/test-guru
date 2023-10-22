@@ -11,7 +11,7 @@ class GistQuestionService
     result = @client.create_gist(gist_params)
     OpenStruct.new(
       'response' => result,
-      'success?' => result.nil? ? false : true
+      'success?' => result.html_url.present? ? true : false
     )
   end
 
