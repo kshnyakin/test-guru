@@ -21,8 +21,7 @@ class TestPassingsController < ApplicationController
   private
 
   def set_test_passing
-    id = params[:id]
-    @test_passing = TestPassing.find(id)
+    @test_passing = TestPassing.find(params[:id])
   end
 
   def update_params
