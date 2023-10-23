@@ -9,6 +9,7 @@ class Question < ApplicationRecord
            inverse_of: :current_question
 
   has_many :answers, dependent: :destroy
+  has_many :gists, dependent: :destroy
 
   validates :title, :body, presence: true
 end

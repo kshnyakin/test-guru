@@ -1,6 +1,19 @@
 <div class="row">
-  <h3><%= t('.header') %></h3>
+  <h3><%= t('.header_gists') %></h3>
+  <% if @gists.present? %>
+    <table class="table table-hover">
+      <tr>
+        <th><%= t('.gist_url') %></th>
+        <th><%= t('.gist_question') %></th>
+        <th><%= t('.gist_user_email') %></th>
+      </tr>
+      <%= render @gists %>
+    </table>
+  <% else %>
+    <p><%= t('.no_gists_yet') %></p>
+  <% end %>
 
+  <h3><%= t('.header_tests') %></h3>
   <% if @tests.present? %>
     <table class="table table-hover">
       <tr>

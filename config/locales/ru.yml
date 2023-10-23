@@ -19,7 +19,6 @@ ru:
       question_info_string: "Вопрос № %{current_question} из %{total_questions}"
       passing_success: "Поздравляем с прохождением теста! Процентр прохождения: %{passing_percentage}%."
       passing_fail: "Сожалеем, но тест не пройден! Процент прохождения: %{passing_percentage}%."
-
   shared:
     nav:
       login_link: "Войти"
@@ -51,7 +50,8 @@ ru:
       new:
         header: "Создание нового теста"
       index:
-        header: 'Доступные тесты'
+        header_tests: 'Список тестов, доступных в системе'
+        header_gists: "Список созданных Gists"
         create_test: "Создать тест"
         title: "Название"
         category: "Категория"
@@ -83,11 +83,9 @@ ru:
         edit: "Редактирование"
         delete: "Удаление"
         delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
-
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"
-  
   users:
     passwords:
       new:
@@ -121,6 +119,10 @@ ru:
       questions_size: "Количество вопросов"
       actions: "Действия"
       no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
+      no_gists_yet: "В настоящий момент в системе не создано ни одного Gist"
+      gist_url: "Ссылка на Gist"
+      gist_question: "Вопрос"
+      gist_user_email: "Пользователь (email)" 
     test:
       start_button: "Начать прохождение теста"
   test_passings:
@@ -130,11 +132,12 @@ ru:
       test_passing:result: "Результаты прохождения теста"
       total_questions: "Общее количество вопросов: %{questions_size}"
       success_questions: "Количество правильных ответов: %{questions_size}"
-      
+
     show:
       header: "Прохождение теста \"%{test_title}\""
       current_question: "Текущий вопрос: %{question_title}"
       answers_variants: "Варианты ответов"
       next_question_button: "Следующий вопрос"
-
-
+  gists:
+    success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
+    failure: "При сохранении Gist произошла ошибка"
