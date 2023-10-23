@@ -21,4 +21,4 @@ Things you may want to cover:
 * Очистка базы данных:
 `$ rails db:seed:replant `
 
-adding gist
+init js
