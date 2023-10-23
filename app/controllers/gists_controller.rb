@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class Admin::GistsController < Admin::BaseController
+class GistsController < ApplicationController
   def create
     test_passing = TestPassing.find(accepted_params[:format])
     current_question = test_passing.current_question
     result = GistQuestionService.new(current_question).call
-    creating_gist(result.response, current_question)
+    creating_gist(result.response, current_question) if result.success?
     redirect_to test_passing_path(test_passing), notice: prepare_notice(result)
   end
 
@@ -19,13 +19,13 @@ class Admin::GistsController < Admin::BaseController
     Gist.create!({
                    user: current_user,
                    question: current_question,
-                   url: github_result.html_url
+                   url: github_result[:html_url]
                  })
   end
 
   def prepare_notice(result)
     if result.success?
-      t('.success', url: result.response.html_url)
+      t('.success', url: result.response[:html_url])
     else
       t('.failure')
     end

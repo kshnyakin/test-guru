@@ -81,9 +81,6 @@ en:
         edit: "Edit"
         delete: "Delete"
         delete_confirmation: "Are you shure want to delete question: '%{question_title} ?"
-    gists:
-      success: "Gist successfully saved! (<a href='%{url}'>link on gist</a>)"
-      failure: "An error occuredhile savin gist"   
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
@@ -129,3 +126,6 @@ en:
       current_question: "Current question: %{question_title}"
       answers_variants: "Answers variants"
       next_question_button: "Next question"
+  gists:
+    success: "Gist successfully saved! (<a href='%{url}'>link on gist</a>)"
+    failure: "An error occuredhile savin gist"   

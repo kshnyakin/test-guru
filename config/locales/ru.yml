@@ -83,13 +83,9 @@ ru:
         edit: "Редактирование"
         delete: "Удаление"
         delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
-    gists:
-      success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
-      failure: "При сохранении Gist произошла ошибка"
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"
-  
   users:
     passwords:
       new:
@@ -142,3 +138,6 @@ ru:
       current_question: "Текущий вопрос: %{question_title}"
       answers_variants: "Варианты ответов"
       next_question_button: "Следующий вопрос"
+  gists:
+    success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
+    failure: "При сохранении Gist произошла ошибка"

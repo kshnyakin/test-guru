@@ -19,7 +19,7 @@
         <%= box.label %>
       </p> 
     <% end %>
-    <p><%= link_to 'Gist question', admin_gists_path(@test_passing), method: :post %>
+    <p><%= link_to 'Gist question', gists_path(@test_passing), method: :post %>
     <p><%= form.submit t('.next_question_button'), class: "btn btn-primary" %></p>
   <% end %> 
 <div class="row">

@@ -10,8 +10,8 @@ class GistQuestionService
   def call
     result = @client.create_gist(gist_params)
     OpenStruct.new(
-      'response' => result,
-      'success?' => result.html_url.present? ? true : false
+      'response' => handle_response(result),
+      'success?' => result.html_url.present?
     )
   end
 
@@ -30,5 +30,12 @@ class GistQuestionService
 
   def gist_content
     [@question.body, *@question.answers.pluck(:body)].join("\n")
+  end
+
+  def handle_response(response)
+    {
+      html_url: response.html_url,
+      gist_id: response.id
+    }
   end
 end
