@@ -46,6 +46,7 @@ gem 'rails-i18n'
 
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'octicons_helper'
 
 # EXTERNAL API
 gem 'octokit'
