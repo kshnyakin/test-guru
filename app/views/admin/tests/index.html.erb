@@ -12,7 +12,9 @@
   <% else %>
     <p><%= t('.no_gists_yet') %></p>
   <% end %>
+</div>
 
+<div class="row">
   <h3><%= t('.header_tests') %></h3>
   <% if @tests.present? %>
     <table class="table table-tests table-hover">

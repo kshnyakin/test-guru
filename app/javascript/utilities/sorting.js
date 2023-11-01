@@ -16,26 +16,24 @@ function sortRowsByTitle() {
   for (var i = 1; i < rows.length; i++) {
     sortedRows.push(rows[i])
   }
-  
-  if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
-    console.log('inside ASC sorting block', this.querySelector('.octicon-arrow-up').classList)
+
+  var arrowUp = this.querySelector('.octicon-arrow-up')
+  var arrowDown = this.querySelector('.octicon-arrow-down')
+
+  if (arrowUp.classList.contains('hide')) {
+    arrowUp.classList.remove('hide')
+    arrowDown.classList.add('hide')
     sortedRows.sort(compareRowsAsc)
-    // sortTable(sortedRows, rows, table)
-    this.querySelector('.octicon-arrow-up').classList.remove('hide')
-    this.querySelector('.octicon-arrow-down').classList.add('hide')
   } else {
-    console.log('inside DESC sorting block')
+    arrowUp.classList.add('hide')
+    arrowDown.classList.remove('hide')
     sortedRows.sort(compareRowsDesc)
-    // sortTable(sortedRows, rows, table)
-    this.querySelector('.octicon-arrow-up').classList.add('hide')
-    this.querySelector('.octicon-arrow-down').classList.remove('hide')
   }
 
   var sortedTable = document.createElement('table')
   sortedTable.classList.add('table')
   sortedTable.classList.add('table-hover')
   sortedTable.classList.add('table-tests')
-  console.log('added header', rows[0])
   sortedTable.appendChild(rows[0])
   
   for (var i = 0; i < sortedRows.length; i++) {
