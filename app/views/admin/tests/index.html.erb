@@ -3,9 +3,9 @@
   <% if @gists.present? %>
     <table class="table table-hover">
       <tr>
-        <th><%= t('.gist_url') %></th>
-        <th><%= t('.gist_question') %></th>
-        <th><%= t('.gist_user_email') %></th>
+        <td><%= t('.gist_url') %></td>
+        <td><%= t('.gist_question') %></td>
+        <td><%= t('.gist_user_email') %></td>
       </tr>
       <%= render @gists %>
     </table>
@@ -21,14 +21,14 @@
       <tr>
         <th class='sort-by-title pointer'>
           <%= t('.title') %>
-          <%= octicon 'arrow-up', class: 'text-success hide' %>
-          <%= octicon 'arrow-down', class: 'text-success hide' %>
+          <%= octicon 'arrow-up', class: 'text-success' %>
+          <%= octicon 'arrow-down', class: 'text-success' %>
         </th>
         <th><%= t('.category') %></th>
         <th><%= t('.questions_size') %></th>
         <th colspan='3'><%= t('.actions') %></th>
       </tr>
-    <%= render @tests %>
+      <%= render @tests %>
     </table>
   <% else %>
     <p><%= t('.no_questions_yet') %></p>
