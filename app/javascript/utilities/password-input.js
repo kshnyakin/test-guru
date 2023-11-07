@@ -16,4 +16,4 @@ class PasswordInput {
   }
 }
 
-module.exports = PasswordInput // 👈 Export class
+module.exports = PasswordInput
