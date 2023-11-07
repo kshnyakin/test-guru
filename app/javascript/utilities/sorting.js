@@ -44,9 +44,8 @@ function compareRowsAsc(row1, row2) {
   var testTitle1 = row1.querySelector('td').textContent
   var testTitle2 = row2.querySelector('td').textContent
 
-  if (testTitle1 < testTitle2) { return -1 }
-  if (testTitle1 > testTitle2) { return 1 }
-   return 0
+  if (testTitle1 === testTitle) return 0
+  (testTitle1 < testTitle2) ? -1 : 1
 }
 
 function compareRowsDesc(row1, row2) {

@@ -1,27 +1,32 @@
+const PasswordInput = require('./password-input.js')
+
 document.addEventListener('turbolinks:load', function() {
-  let passwordField = document.querySelector('#user_password')
-  let passwordConfirmationField = document.querySelector('#user_password_confirmation')
-  passwordField.addEventListener('input', comparePasswords)
-  passwordConfirmationField.addEventListener('input', comparePasswords)
+  const form = document.querySelector('.form-group')
+  const passwordField = document.getElementById('user_password')
+  const passwordConfirmationField = document.getElementById('user_password_confirmation')
+  if (form && passwordField && passwordConfirmationField) {
+    form.addEventListener('input', (event) => comparePasswords(event, passwordField, passwordConfirmationField))
+  }
 })
 
-function comparePasswords() {
-  let passwordField = document.querySelector('#user_password')
-  let confirmationPasswordField = document.querySelector('#user_password_confirmation')
+function comparePasswords(event, passwordField, confirmationPasswordField) {
   let passwordValue = passwordField.value
   let passwordConfirmValue = confirmationPasswordField.value
 
-  passwordField.removeAttribute("class")
-  confirmationPasswordField.removeAttribute("class")
-  if (passwordConfirmValue.length === 0) { return }
-  switch (passwordValue === passwordConfirmValue) {
-    case true:
-      passwordField.classList.add('password_correct')
-      confirmationPasswordField.classList.add('password_correct')
-      break
-    case false:
-      passwordField.classList.add('password_incorrect')
-      confirmationPasswordField.classList.add('password_incorrect')
-      break
+  const activeIds = ['user_password_confirmation', 'user_password']
+
+  if (activeIds.includes(event.srcElement.id)) {
+    let passwordElement = new PasswordInput(passwordField)
+    let passwordConfirmElement = new PasswordInput(confirmationPasswordField)
+    passwordElement.clearClass()
+    passwordConfirmElement.clearClass()
+    if (passwordConfirmValue.length === 0) { return }
+    if (passwordValue === passwordConfirmValue) {
+      passwordElement.addCorrectCLass()
+      passwordConfirmElement.addCorrectCLass()
+    } else {
+      passwordElement.addIncorrectCLass()
+      passwordConfirmElement.addIncorrectCLass()
+    }
   }
 }
