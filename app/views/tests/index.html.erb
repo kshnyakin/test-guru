@@ -2,9 +2,13 @@
   <h3><%= t('.header') %> </h3>
 
   <% if @tests.present? %>
-    <table class="table table-hover">
+    <table class="table table-hover table-tests">
       <tr>
-        <th><%= t('.title') %></th>
+        <th class='sort-by-title pointer'>
+          <%= t('.title') %>
+          <%= octicon 'arrow-up', class: 'text-success' %>
+          <%= octicon 'arrow-down', class: 'text-success' %>
+        </th>
         <th><%= t('.category') %></th>
         <th><%= t('.questions_size') %></th>
         <th><%= t('.actions') %></th>
