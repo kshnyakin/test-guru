@@ -61,6 +61,8 @@ en:
         gist_user_email: "User (email)" 
       create:
         success: 'Test was successfully created'
+      form_inline:
+        submit: "OK"
       test:
         show: "Show"
         edit: "Edit"

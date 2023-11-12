@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("utilities/sorting")
 require("utilities/password-validation")
-
+require("utilities/form-inline")
 require("jquery")
 // require("popper")
 // require("bootstrap-sprockets")
