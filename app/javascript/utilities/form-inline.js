@@ -7,7 +7,7 @@ document.addEventListener('turbolinks:load', function() {
   }
 
   let errors = document.querySelector('.resource-errors')
-  if (errors) {
+  if (errors && controls.length) {
     let resourceId = errors.dataset.resourceId
     formInlineHandler(resourceId)
   }
@@ -17,7 +17,6 @@ function formInlineLinkHandler(event) {
   event.preventDefault()
   let testId = this.dataset.testId
   let form = document.querySelector('.sort-by-title')
-  console.log("Hello from formInlineLinkHandler function, testId = ", testId )
   formInlineHandler(testId)
 }
 
@@ -25,9 +24,6 @@ function formInlineHandler(testId) {
   let link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
   let testTitle = document.querySelector('.test-title[data-test-id="' + testId + '"]')
   let formInline = document.querySelector('.form-inline[data-test-id="' + testId + '"]')
-  // testTitle.classList.add('hide')
-  // formInline.classList.delete('hide')
-  console.log(link, testTitle, formInline)
 
   if (formInline.classList.contains('hide')) {
     testTitle.classList.add('hide')
