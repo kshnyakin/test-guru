@@ -5,7 +5,7 @@
 
   <div class="progress-container">
     <% @test_passing.test.questions.each do |question| %>
-      <%= content_tag :span, "", class: "progress-bar not-passed", data: { question_id: question.id } %>
+      <%= content_tag :span, "", class: "progress-bar", data: { question_id: question.id } %>
     <% end %>
   </div>
 
@@ -29,6 +29,6 @@
       </p> 
     <% end %>
     <p><%= link_to 'Gist question', gists_path(@test_passing), method: :post %>
-    <p><%= form.submit t('.next_question_button'), class: "btn btn-primary" %></p>
+    <p><%= form.submit t('.next_question_button'), class: "btn btn-primary", data: { question_id: @test_passing.current_question.id } %></p>
   <% end %> 
 <div class="row">
