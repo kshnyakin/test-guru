@@ -60,6 +60,8 @@ ru:
         no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
       create:
         success: 'Тест успешно создан'
+      form_inline:
+        submit: "OK"
       test:
         show: "Просмотр"
         edit: "Редактирование"

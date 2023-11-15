@@ -1,0 +1,18 @@
+.progress-container {
+  padding: 1em;
+}
+
+span.progress-bar {
+  padding: 1em;
+  display: inline;
+  margin: 0.1em;
+}
+
+span.passed {
+  background-color: green;
+}
+span.not-passed {
+  background-color: red;
+}
+
+

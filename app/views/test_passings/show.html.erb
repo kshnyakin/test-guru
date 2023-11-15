@@ -1,5 +1,14 @@
 <div class="row">
+
+
   <h1><%= t('.header', test_title: @test_passing.test.title) %></h1>
+
+  <div class="progress-container">
+    <% @test_passing.test.questions.each do |question| %>
+      <%= content_tag :span, "", class: "progress-bar", data: { question_id: question.id } %>
+    <% end %>
+  </div>
+
 
   <%= question_informator(@test_passing) %>
 
@@ -20,6 +29,6 @@
       </p> 
     <% end %>
     <p><%= link_to 'Gist question', gists_path(@test_passing), method: :post %>
-    <p><%= form.submit t('.next_question_button'), class: "btn btn-primary" %></p>
+    <p><%= form.submit t('.next_question_button'), class: "btn btn-primary", data: { question_id: @test_passing.current_question.id } %></p>
   <% end %> 
 <div class="row">
