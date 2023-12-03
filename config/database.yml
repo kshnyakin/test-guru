@@ -8,10 +8,12 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  
 
 development:
   <<: *default
   database: test_guru_development
+  host: ''
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,5 +25,5 @@ test:
 # # Тут нужно прописать что как чего работает
 production:
   <<: *default
-  database: <%= ENV.fetch("DATABASE_NAME") %>
+  database: <%= ENV.fetch("DATABASE_NAME") {test_guru_production} %> 
   url: <%= ENV.fetch("DATABASE_URL") %>
