@@ -14,12 +14,17 @@ backend_category, frontend_category, devops_category, management_category, _hr_c
 ivanov_user, petrov_user, sidorov_user =
   User.create!([
                  { first_name: 'Иван', last_name: 'Иванов', email: 'ivanov@some-yandex.ru', login: 'ivanov',
-                   password: '123456' },
+                   password: '123456', confirmed_at: => Time.curent },
                  { first_name: 'Петр', last_name: 'Петров', email: 'petrov@some-google.com', login: 'petrov',
-                   password: '123456' },
+                   password: '123456', confirmed_at: => Time.curent },
                  { first_name: 'Максим', last_name: 'Сидоров', email: 'sidorov@some-mail.ru', login: 'sidorov',
-                   password: '123456' }
+                   password: '123456', confirmed_at: => Time.curent }
                ])
+# Создание администратора
+ivanov_user, petrov_user, sidorov_user =
+  Admin.create!({ first_name: 'Admin', last_name: 'Willis', email: 'admin@admin-test-guru.ru', login: 'admin',
+                   password: 'Jsfi347rfub8', confirmed_at: => Time.curent
+                })
 
 # Создание тестов
 ruby_test, java_test =

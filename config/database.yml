@@ -20,7 +20,7 @@ test:
   <<: *default
   database: test_guru_test
 
-# Тут нужно прописать что как чего работает
+# # Тут нужно прописать что как чего работает
 production:
   <<: *default
   database: <%= ENV.fetch("DATABASE_NAME") %>
