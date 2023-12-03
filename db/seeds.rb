@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+TestPassing.destroy_all
+Answer.destroy_all
+Question.destroy_all
+Test.destroy_all
+User.destroy_all
+Category.destroy_all
+
 # Создание категорий
 backend_category, frontend_category, devops_category, management_category, _hr_category =
   Category.create!([
