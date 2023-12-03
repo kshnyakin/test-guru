@@ -25,5 +25,5 @@ test:
 # # Тут нужно прописать что как чего работает
 production:
   <<: *default
-  database: <%= ENV.fetch("DATABASE_NAME") {test_guru_production} %> 
+  database: <%= ENV.fetch("DATABASE_NAME") {'test_guru_production'} %> 
   url: <%= ENV.fetch("DATABASE_URL") %>
