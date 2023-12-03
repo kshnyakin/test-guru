@@ -8,11 +8,12 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
   
 
 development:
   <<: *default
-  database: test_guru_development
+  database: test_guru_dev1
   host: ''
 
 # Warning: The database defined as "test" will be erased and
@@ -20,7 +21,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: test_guru_test
+  database: test_guru_test1
 
 # # Тут нужно прописать что как чего работает
 production:

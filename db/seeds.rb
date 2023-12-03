@@ -21,7 +21,7 @@ ivanov_user, petrov_user, sidorov_user =
                    password: '123456', confirmed_at: Time.current }
                ])
 # Создание администратора
-ivanov_user, petrov_user, sidorov_user =
+admin_user =
   Admin.create!({ first_name: 'Admin', last_name: 'Willis', email: 'admin@admin-test-guru.ru', login: 'admin',
                    password: 'Jsfi347rfub8', confirmed_at: Time.current
                 })
