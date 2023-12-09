@@ -65,18 +65,36 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.yandex.ru',
-    port: 465,
-    user_name: ENV['SMTP_USERNAME'], # ak@devpull.ru
-    password: ENV['SMTP_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+# google ==========
+config.action_mailer.smtp_settings = {
+  adress:               'smtp.gmail.com',
+  port:                 587,
+  user_name:            ENV['SMTP_USERNAME'],
+  password:             ENV['SMTP_PASSWORD'],
+  authentication:       'plain',
+  enable_starttls_auto: true
+}
 
-  config.action_mailer.default_url_options = {
-    host: 'test-guru-4lce.onrender.com', protocol: 'https://'
-  }
+config.action_mailer.default_url_options = {
+  host: 'smtp.gmail.ru', from: 'thinknetica@gmail.com'
+}
+# / google ===========
+
+
+  # yandex ==============
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.yandex.ru',
+  #   port: 465,
+  #   user_name: ENV['SMTP_USERNAME'], # ak@devpull.ru
+  #   password: ENV['SMTP_PASSWORD'],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
+
+  # config.action_mailer.default_url_options = {
+  #   host: 'test-guru-4lce.onrender.com', protocol: 'https://'
+  # }
+  #  / yandex =================
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
