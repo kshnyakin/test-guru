@@ -66,34 +66,35 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
 # google ==========
-config.action_mailer.smtp_settings = {
-  adress:               'smtp.gmail.com',
-  port:                 587,
-  user_name:            ENV['SMTP_USERNAME'],
-  password:             ENV['SMTP_PASSWORD'],
-  authentication:       'plain',
-  enable_starttls_auto: true
-}
+# config.action_mailer.smtp_settings = {
+#   adress:               'smtp.gmail.com',
+#   port:                 587,
+#   domain:               'https://test-guru-4lce.onrender.com',
+#   user_name:            ENV['SMTP_USERNAME'],
+#   password:             ENV['SMTP_PASSWORD'],
+#   authentication:       'plain',
+#   enable_starttls_auto: true
+# }
 
-config.action_mailer.default_url_options = {
-  host: 'smtp.gmail.ru', from: 'thinknetica@gmail.com'
-}
+# config.action_mailer.default_url_options = {
+#   host: 'https://test-guru-4lce.onrender.com/', from: 'thinknetica@gmail.com'
+# }
 # / google ===========
 
 
   # yandex ==============
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.yandex.ru',
-  #   port: 465,
-  #   user_name: ENV['SMTP_USERNAME'], # ak@devpull.ru
-  #   password: ENV['SMTP_PASSWORD'],
-  #   authentication: 'plain',
-  #   enable_starttls_auto: true
-  # }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.yandex.ru',
+    port: 465,
+    user_name: ENV['SMTP_USERNAME'], # ak@devpull.ru
+    password: ENV['SMTP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
-  # config.action_mailer.default_url_options = {
-  #   host: 'test-guru-4lce.onrender.com', protocol: 'https://'
-  # }
+  config.action_mailer.default_url_options = {
+    host: 'test-guru-4lce.onrender.com', protocol: 'https://'
+  }
   #  / yandex =================
 
   # Ignore bad email addresses and do not raise email delivery errors.
