@@ -38,41 +38,41 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
 # ======== Google
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-
-  config.action_mailer.smtp_settings = {
-    adress:               'smtp.gmail.com',
-    port:                 587,
-    user_name:            ENV['SMTP_USERNAME'],
-    password:             ENV['SMTP_PASSWORD'],
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
-
-  config.action_mailer.default_url_options = {
-    host: 'smtp.gmail.ru', from: 'thinknetica@gmail.com'
-  }
-
-  # ======= Yandex
-
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.perform_deliveries = true
 
   # config.action_mailer.smtp_settings = {
-  #   tls: true,
-  #   ssle: true,
-  #   address: 'smtp.yandex.ru',
-  #   port: 465,
-  #   user_name: 'ak@devpull.ru', # ak@devpull.ru
-  #   password: ENV['SMTP_PASSWORD'],
-  #   authentication: :login,
+  #   adress:               'smtp.gmail.com',
+  #   port:                 587,
+  #   user_name:            ENV['SMTP_USERNAME'],
+  #   password:             ENV['SMTP_PASSWORD'],
+  #   authentication:       'plain',
   #   enable_starttls_auto: true
   # }
 
   # config.action_mailer.default_url_options = {
-  #   host: 'smtp.yandex.ru', from: 'ak@devpull.ru'
+  #   host: 'smtp.gmail.ru', from: 'thinknetica@gmail.com'
   # }
+
+  # ======= Yandex
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.smtp_settings = {
+    tls: true,
+    ssle: true,
+    address: 'smtp.yandex.ru',
+    port: 465,
+    user_name: 'ak@devpull.ru', # ak@devpull.ru
+    password: ENV['SMTP_PASSWORD'],
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.default_url_options = {
+    host: 'localhost:3000', from: 'ak@devpull.ru'
+  }
 
 # ========
   

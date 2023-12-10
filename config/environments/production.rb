@@ -83,17 +83,22 @@ Rails.application.configure do
 
 
   # yandex ==============
+  
   config.action_mailer.smtp_settings = {
+    tls: true,
+    ssle: true,
     address: 'smtp.yandex.ru',
     port: 465,
     user_name: ENV['SMTP_USERNAME'], # ak@devpull.ru
     password: ENV['SMTP_PASSWORD'],
-    authentication: 'plain',
+    authentication: :login,
     enable_starttls_auto: true
   }
 
   config.action_mailer.default_url_options = {
-    host: 'test-guru-4lce.onrender.com', protocol: 'https://'
+    host: 'test-guru-4lce.onrender.com',
+    protocol: 'https://',
+    from: 'ak@devpull.ru'
   }
   #  / yandex =================
 
