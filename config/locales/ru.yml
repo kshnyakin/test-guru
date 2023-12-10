@@ -85,6 +85,12 @@ ru:
         edit: "Редактирование"
         delete: "Удаление"
         delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
+  
+  feedback:
+    new:
+      submit: "Отправить сообщение"
+      header: "Привет! Это форма обратной связи."
+
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"

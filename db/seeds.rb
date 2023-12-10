@@ -29,7 +29,7 @@ ivanov_user, petrov_user, sidorov_user =
                ])
 # Создание администратора
 admin_user =
-  Admin.create!({ first_name: 'Admin', last_name: 'Willis', email: 'admin@admin-test-guru.ru', login: 'admin',
+  Admin.create!({ first_name: 'Admin', last_name: 'Willis', email: 'ak@devpull.ru', login: 'admin',
                    password: 'Jsfi347rfub8', confirmed_at: Time.current
                 })
 
