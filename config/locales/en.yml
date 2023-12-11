@@ -83,6 +83,12 @@ en:
         edit: "Edit"
         delete: "Delete"
         delete_confirmation: "Are you shure want to delete question: '%{question_title} ?"
+  
+  feedback:
+    new:
+      submit: "Send message"
+      header: "Hello! This is feedback page!"
+  
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"

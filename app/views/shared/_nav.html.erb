@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <%= link_to 'Test-Guru', root_path, class: 'navbar-brand' %>
     <span class="navbar-text">
+      <%= link_to 'Feedback', feedback_path %> 
       <% if user_signed_in? %>
         <% if current_user.admin? %>
           <%= link_to 'AdminPanel', admin_tests_path %>
@@ -10,7 +11,7 @@
           Welcome, <b><%= current_user.email %></b>&nbsp Guru
           (<%= link_to 'Logout', destroy_user_session_path, method: :delete %>)
         </p>
-      <% else %>
+      <% elsif defined?(resource_name)  %>
         <%= link_to t('.login_link'), new_session_path(resource_name) %> |
         <%= link_to t('.sign_in_link'), new_registration_path(resource_name) %>
       <% end %>

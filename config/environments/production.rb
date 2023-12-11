@@ -63,6 +63,44 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "test_guru_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+
+# google ==========
+# config.action_mailer.smtp_settings = {
+#   adress:               'smtp.gmail.com',
+#   port:                 587,
+#   domain:               'https://test-guru-4lce.onrender.com',
+#   user_name:            ENV['SMTP_USERNAME'],
+#   password:             ENV['SMTP_PASSWORD'],
+#   authentication:       'plain',
+#   enable_starttls_auto: true
+# }
+
+# config.action_mailer.default_url_options = {
+#   host: 'https://test-guru-4lce.onrender.com/', from: 'thinknetica@gmail.com'
+# }
+# / google ===========
+
+
+  # yandex ==============
+  
+  config.action_mailer.smtp_settings = {
+    tls: true,
+    ssle: true,
+    address: 'smtp.yandex.ru',
+    port: 465,
+    user_name: ENV['SMTP_USERNAME'], # ak@devpull.ru
+    password: ENV['SMTP_PASSWORD'],
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.default_url_options = {
+    host: 'test-guru-4lce.onrender.com',
+    protocol: 'https://',
+    from: 'ak@devpull.ru'
+  }
+  #  / yandex =================
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
