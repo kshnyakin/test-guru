@@ -1,0 +1,17 @@
+<div class="row">
+  <h3> Available Badge Templates</h3>
+
+  <% if @template_badges.present? %>
+    <table class="table table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Issuance_type</th>
+        <th>img_path</th>
+        <th>img</th>
+      </tr>
+    <%= render @template_badges %>
+    </table>  
+  <% else %>
+    <p>No templates yet</p>
+  <% end %>
+<div>

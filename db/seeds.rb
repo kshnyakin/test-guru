@@ -5,7 +5,10 @@ Answer.destroy_all
 Question.destroy_all
 Test.destroy_all
 User.destroy_all
+# Badge.destroy_all
+BadgeTemplate.destroy_all
 Category.destroy_all
+
 
 # Создание категорий
 backend_category, frontend_category, devops_category, management_category, _hr_category =
@@ -157,3 +160,24 @@ sidorov_user.test_passings.create!([
                                      { test: ruby_test, current_question: ruby_test.questions.first },
                                      { test: java_test, current_question: java_test.questions.first }
                                    ])
+# Создание шаблонов бейджей
+badge_template_all_backend_tests = BadgeTemplate.create!(
+  title: 'All tests by Backend category',
+  issuance_type: 'all_tests_by_category',
+  category_id: Category.find_by(title: 'Backend').id,
+  img_path: 'badges/category_badge.jpg'
+)
+
+badge_template_all_2_level_tests = BadgeTemplate.create!(
+  title: 'All tests by Backend category',
+  issuance_type: 'all_tests_by_level',
+  level: 2,
+  img_path: 'badges/level_two_badge.jpg'
+)
+
+badge_template_by_attempts_number = BadgeTemplate.create!(
+  title: 'Test from 1 attempt',
+  issuance_type: 'test_by_attempts_number',
+  attempts_number: 1,
+  img_path: 'badges/attempts_one_badge.jpg'
+)

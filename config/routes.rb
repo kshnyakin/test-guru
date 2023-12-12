@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     post :start, on: :member
   end
 
+  resources :badge_templates, only: :index
+
   resources :test_passings, only: %i[show update] do
     get :result, on: :member
   end
