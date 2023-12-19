@@ -126,6 +126,7 @@ ru:
       category: "Категория"
       questions_size: "Количество вопросов"
       actions: "Действия"
+      complexity_level: "Уровень сложности"
       no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
       no_gists_yet: "В настоящий момент в системе не создано ни одного Gist"
       gist_url: "Ссылка на Gist"

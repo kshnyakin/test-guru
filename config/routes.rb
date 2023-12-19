@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   get  '/feedback',          to: 'feedback#new'
   post '/feedback',          to: 'feedback#create'
   get  '/feedback-complete', to: 'feedback#success'
-  
+
   devise_for :users,
              path: :gurus,
              path_names: { sign_in: :login, sign_out: :logout },
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :badge_templates, only: :index
+  resources :badges, only: :index
 
   resources :test_passings, only: %i[show update] do
     get :result, on: :member

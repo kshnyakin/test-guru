@@ -3,4 +3,3 @@ class BadgeTemplatesController < ApplicationController
     @template_badges = BadgeTemplate.all
   end
 end
-

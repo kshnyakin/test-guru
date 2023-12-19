@@ -9,7 +9,8 @@
         <% end %>
         <p>
           Welcome, <b><%= current_user.email %></b>&nbsp Guru
-          (<%= link_to 'Logout', destroy_user_session_path, method: :delete %>)
+          (<%= link_to 'Logout', destroy_user_session_path, method: :delete %>)<br>
+          <%= link_to 'SHOW My badges', badges_path %>
         </p>
       <% elsif defined?(resource_name)  %>
         <%= link_to t('.login_link'), new_session_path(resource_name) %> |

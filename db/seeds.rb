@@ -9,7 +9,6 @@ User.destroy_all
 BadgeTemplate.destroy_all
 Category.destroy_all
 
-
 # Создание категорий
 backend_category, frontend_category, devops_category, management_category, _hr_category =
   Category.create!([
@@ -33,8 +32,7 @@ ivanov_user, petrov_user, sidorov_user =
 # Создание администратора
 admin_user =
   Admin.create!({ first_name: 'Admin', last_name: 'Willis', email: 'ak@devpull.ru', login: 'admin',
-                   password: 'Jsfi347rfub8', confirmed_at: Time.current
-                })
+                  password: 'Jsfi347rfub8', confirmed_at: Time.current })
 
 # Создание тестов
 ruby_test, java_test =
@@ -169,7 +167,7 @@ badge_template_all_backend_tests = BadgeTemplate.create!(
 )
 
 badge_template_all_2_level_tests = BadgeTemplate.create!(
-  title: 'All tests by Backend category',
+  title: 'All tests with 2 level of complexity',
   issuance_type: 'all_tests_by_level',
   level: 2,
   img_path: 'badges/level_two_badge.jpg'
@@ -180,4 +178,20 @@ badge_template_by_attempts_number = BadgeTemplate.create!(
   issuance_type: 'test_by_attempts_number',
   attempts_number: 1,
   img_path: 'badges/attempts_one_badge.jpg'
+)
+
+# Создание тестовых бейджей
+Badge.create!(
+  user_id: User.find_by(login: 'ivanov').id,
+  badge_template_id: badge_template_all_backend_tests.id
+)
+
+Badge.create!(
+  user_id: User.find_by(login: 'ivanov').id,
+  badge_template_id: badge_template_all_2_level_tests.id
+)
+
+Badge.create!(
+  user_id: User.find_by(login: 'ivanov').id,
+  badge_template_id: badge_template_by_attempts_number.id
 )

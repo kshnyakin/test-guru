@@ -1,6 +1,7 @@
 <tr>
-  <td><%= test.title %></td>
+  <td><%= test.title %> (<%= test.id %>)</td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
+  <td><%= test.level %></td>
   <td><%= button_to t('.start_button'), start_test_path(test), class: 'btn btn-primary' %></td>
 </tr>
