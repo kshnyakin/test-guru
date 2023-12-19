@@ -1,5 +1,6 @@
 class BadgeTemplate < ApplicationRecord
   has_many :badges, dependent: :destroy
+  belongs_to :category, optional: true
 
   enum issuance_type: {
     all_tests_by_category: 'all_tests_by_category',

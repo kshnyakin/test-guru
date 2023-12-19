@@ -1,0 +1,24 @@
+<h1>Просмотр шаблона награды '<%= @badge_template.title %>':</h1>
+<hr>
+<p>
+  Title: <%= @badge_template.title %><br>
+  Issuance type: <%= @badge_template.issuance_type %><br>
+  Img_path: <%= @badge_template.img_path %>
+</p>
+
+<p> Характеристики: </p>
+<% if @badge_template.category_id.present? %>
+  Category: <%= @badge_template.category.title %>
+<% end %>
+<% if @badge_template.attempts_number.present? %>
+  Attempts quantity: <%= @badge_template.attempts_number %>
+<% end %>
+<% if @badge_template.level.present? %>
+  Complexity level: <%= @badge_template.level %>
+<% end %>
+
+<hr>
+<p>
+  <%= link_to t('.back_to_list'), admin_tests_path %> |
+  <%= link_to t('.edit'), edit_admin_badge_template_path(@badge_template)%> |
+</p>

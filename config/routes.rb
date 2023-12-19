@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :gists, only: :create
 
   namespace :admin do
+    resources :badge_templates, only: %i[show edit update]
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do

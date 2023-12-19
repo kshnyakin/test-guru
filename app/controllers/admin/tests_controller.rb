@@ -6,6 +6,7 @@ class Admin::TestsController < Admin::BaseController
 
   def index
     @gists = Gist.all
+    @badge_templates = BadgeTemplate.all
   end
 
   def show; end

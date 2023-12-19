@@ -1,0 +1,24 @@
+<%= form_with model: model, url: action_url do |form| %>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %><br>
+
+  <%= form.label :issuance_type %><br>
+  <%= form.text_field :issuance_type, disabled: true %><br>
+
+  <% if model.level.present? %>
+    <%= form.label :level %><br>
+    <%= form.text_field :level %><br>
+  <% end %>
+
+  <% if model.category_id.present? %>
+    <%= form.label :category_id %><br>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %><br>
+  <% end %>
+
+  <% if model.attempts_number.present? %>
+    <%= form.label :attempts_number %><br>
+    <%= form.text_field :attempts_number %><br>
+  <% end %>
+
+  <p><%= form.submit %></p>
+<% end %>

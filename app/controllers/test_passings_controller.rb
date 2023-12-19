@@ -9,8 +9,8 @@ class TestPassingsController < ApplicationController
   def update
     @test_passing.accept!(update_params)
     if @test_passing.completed?
-      handle_successful_passing if @test_passing.successful?
-      # TestsMailer.completed_test(@test_passing).deliver_now
+      handle_completed_passing
+      TestsMailer.completed_test(@test_passing).deliver_now
       redirect_to result_test_passing_path(@test_passing)
     else
       render :show
@@ -29,8 +29,8 @@ class TestPassingsController < ApplicationController
     params[:answer_ids]
   end
 
-  def handle_successful_passing
-    @test_passing.update!(successful: true)
+  def handle_completed_passing
+    @test_passing.update!(successful: true) if @test_passing.successful?
     BadgeAwardProcessing.new(current_user, @test_passing).call
   end
 end

@@ -1,5 +1,5 @@
 class BadgeTemplatesController < ApplicationController
   def index
-    @template_badges = BadgeTemplate.all
+    @badge_templates = BadgeTemplate.all
   end
 end
