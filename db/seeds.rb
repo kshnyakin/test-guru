@@ -5,8 +5,7 @@ Answer.destroy_all
 Question.destroy_all
 Test.destroy_all
 User.destroy_all
-# Badge.destroy_all
-BadgeTemplate.destroy_all
+Badge.destroy_all
 Category.destroy_all
 
 # Создание категорий
@@ -158,40 +157,25 @@ sidorov_user.test_passings.create!([
                                      { test: ruby_test, current_question: ruby_test.questions.first },
                                      { test: java_test, current_question: java_test.questions.first }
                                    ])
-# Создание шаблонов бейджей
-badge_template_all_backend_tests = BadgeTemplate.create!(
-  title: 'All tests by Backend category',
-  issuance_type: 'all_tests_by_category',
-  category_id: Category.find_by(title: 'Backend').id,
+
+# Создание бейджей
+Badge.create!(
+  name: 'All tests by Backend category',
+  award_type: "all_tests_by_category_id",
+  award_condition: Category.find_by(title: 'Backend').id,
   img_path: 'badges/category_badge.jpg'
 )
 
-badge_template_all_2_level_tests = BadgeTemplate.create!(
-  title: 'All tests with 2 level of complexity',
-  issuance_type: 'all_tests_by_level',
-  level: 2,
+Badge.create!(
+  name: 'All tests with 2 level of complexity',
+  award_type: "all_tests_by_level",
+  award_condition: 2,
   img_path: 'badges/level_two_badge.jpg'
 )
 
-badge_template_by_attempts_number = BadgeTemplate.create!(
-  title: 'Test from 1 attempt',
-  issuance_type: 'test_by_attempts_number',
-  attempts_number: 1,
+Badge.create!(
+  name: 'Test from 1 attempt',
+  award_type: "test_by_attempts_number",
+  award_condition: 1,
   img_path: 'badges/attempts_one_badge.jpg'
-)
-
-# Создание тестовых бейджей
-Badge.create!(
-  user_id: User.find_by(login: 'ivanov').id,
-  badge_template_id: badge_template_all_backend_tests.id
-)
-
-Badge.create!(
-  user_id: User.find_by(login: 'ivanov').id,
-  badge_template_id: badge_template_all_2_level_tests.id
-)
-
-Badge.create!(
-  user_id: User.find_by(login: 'ivanov').id,
-  badge_template_id: badge_template_by_attempts_number.id
 )

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class BadgeAwarder
-  def initialize(user, badge_templte)
+  def initialize(user, badge)
     @user = user
-    @badge_template = badge_templte
+    @badge = badge
   end
 
   def call
-    @badge_template.badges.create!(user_id: @user.id)
+    @user.issued_awards.create!(badge_id: @badge.id)
   end
 end

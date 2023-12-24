@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 class BadgeTypeResolver
-  def initialize(user, test_passing, badge_template)
+  def initialize(user, test_passing, badge)
     @user = user
     @test_passing = test_passing
-    @badge_template = badge_template
+    @badge = badge
   end
 
   def call
-    case @badge_template.issuance_type
-    when 'all_tests_by_category'
-      BadgeCategoryChecker.new(@user, @badge_template).call
+    case @badge.award_type
+    when 'all_tests_by_category_id'
+      BadgeCategoryChecker.new(@user, @badge).call
     when 'all_tests_by_level'
-      BadgeLevelChecker.new(@user, @badge_template).call
+      BadgeLevelChecker.new(@user, @badge).call
     when 'test_by_attempts_number'
-      BadgeAttemptsChecker.new(@user, @badge_template, @test_passing).call
+      BadgeAttemptsChecker.new(@user, @badge, @test_passing).call
     end
   end
 end

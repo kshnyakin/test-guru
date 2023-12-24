@@ -16,7 +16,7 @@
 
 <div class="row">
   <h3>Шаблоны наград</h3>
-  <% if @badge_templates.present? %>
+  <% if @badges.present? %>
     <table class="table table-hover">
       <tr>
         <th>Title</th>
@@ -24,7 +24,7 @@
         <th>img_path</th>
         <th colspan='2'><%= t('.actions') %></th>
       </tr>
-      <%= render @badge_templates %>
+      <%= render @badges %>
     </table>
   <% else %>
     <p>No BadgeTemplates yet</p>

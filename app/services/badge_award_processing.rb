@@ -9,8 +9,8 @@ class BadgeAwardProcessing
   def call
     return unless @test_passing.successful?
 
-    BadgeTemplate.all.each do |badge_template|
-      BadgeTypeResolver.new(@user, @test_passing, badge_template).call
+    Badge.all.each do |badge|
+      BadgeTypeResolver.new(@user, @test_passing, badge).call
     end
   end
 end

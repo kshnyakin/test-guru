@@ -1,7 +1,6 @@
 <tr>
-  <td><%= badge.badge_template.title %></td>
-  <td><%= badge.created_at %></td>
-  <td><%= badge.badge_template.issuance_type %></td>
-  <td><%= badge.badge_template.img_path %></td>
-  <td><%= image_tag(badge.badge_template.img_path) %></td>
+  <td><%= badge.name %></td>
+  <td><%= badge.award_type %></td>
+  <td><%= badge.award_condition %></td>
+  <td class="badge-image"><%= image_tag(badge.img_path) %></td>
 </tr>

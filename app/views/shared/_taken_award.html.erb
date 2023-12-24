@@ -1,0 +1,9 @@
+<% issued_awards.each do |award| %>
+  <tr>
+    <td><%= award.badge.name %></td>
+    <td><%= award.badge.award_type %></td>
+    <td><%= award.badge.award_condition %></td>
+    <td><%= award.created_at %>
+    <td class="badge-image"><%= image_tag(award.badge.img_path) %></td>
+  </tr>
+<% end %>
