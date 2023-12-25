@@ -7,6 +7,20 @@ class Admin::BadgesController < Admin::BaseController
     @badge = Badge.find(params[:id])
   end
 
+  def new
+    @badge = Badge.new
+  end
+
+  def create
+    binding.pry
+    @badge = Badge.new(badge_params)
+    if @badge.save
+      redirect_to admin_badge_path(@badge), notice: t('.success')
+    else
+      render :new
+    end
+  end
+
   def edit; end
 
   def update
@@ -24,6 +38,6 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def badge_params
-    params.require(:badge).permit(:title, :award_type, :award_condition)
+    params.require(:badge).permit(:name, :award_type, :award_condition, :img_path)
   end
 end

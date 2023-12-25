@@ -85,7 +85,12 @@ ru:
         edit: "Редактирование"
         delete: "Удаление"
         delete_confirmation: "Вы действительно хотите удалить вопрос : '%{question_title} ?"
-  
+    badges:
+      new:
+        header: Создание новой награды
+        
+
+
   feedback:
     new:
       submit: "Отправить сообщение"

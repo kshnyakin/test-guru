@@ -29,6 +29,7 @@
   <% else %>
     <p>No BadgeTemplates yet</p>
   <% end %>
+  <p><%= link_to t('.create_badge'), new_admin_badge_path, class: 'btn btn-primary' %></p>
 </div>
 
 <%= render 'shared/errors', resource: @test %>

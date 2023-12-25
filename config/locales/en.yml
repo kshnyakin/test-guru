@@ -83,7 +83,11 @@ en:
         edit: "Edit"
         delete: "Delete"
         delete_confirmation: "Are you shure want to delete question: '%{question_title} ?"
-  
+    badges:
+      new:
+        header: Create new badge
+
+
   feedback:
     new:
       submit: "Send message"
