@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_24_110402) do
+ActiveRecord::Schema.define(version: 2023_12_24_104600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 2023_12_24_110402) do
   end
 
   create_table "badges", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
     t.string "award_type", null: false
     t.string "award_condition", null: false
     t.string "img_path", null: false
-    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -70,11 +70,11 @@ ActiveRecord::Schema.define(version: 2023_12_24_110402) do
   create_table "test_passings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
+    t.boolean "successful", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "correct_questions_counter", default: 0, null: false
     t.bigint "current_question_id"
-    t.boolean "successful", default: false
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"

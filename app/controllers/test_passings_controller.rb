@@ -30,7 +30,6 @@ class TestPassingsController < ApplicationController
   end
 
   def handle_completed_passing
-    @test_passing.update!(successful: true) if @test_passing.successful?
     BadgeAwardProcessing.new(current_user, @test_passing).call
   end
 end
