@@ -15,7 +15,7 @@ class TestPassing < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || test_time_expired?
   end
 
   def successful?
@@ -38,6 +38,12 @@ class TestPassing < ApplicationRecord
   end
 
   private
+
+  def test_time_expired?
+    test_duration_min = test.duration_min
+    passing_started_at = created_at
+    Time.current - passing_started_at > (test_duration_min * 60)
+  end
 
   def correct_answer?(answer_ids)
     correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort

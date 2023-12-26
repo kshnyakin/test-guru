@@ -11,13 +11,13 @@
   </div>
   <%= content_tag :div, class: 'timer-container', data: {
     test_passing_started_at: @test_passing.created_at.to_s,
-    test_duration_sec: @test_passing.test.duration_min * 60
+    test_duration_milli_seconds: @test_passing.test.duration_min * 60 * 1000
     } do %>
     До окончания теста осталось:
-    <span id="days"></span>days
-    <span id="hours"></span>hours
-    <span id="minutes"></span>minutes
-    <span id="seconds"></span>seconds
+    <span id="days"></span>&nbsp days /
+    <span id="hours"></span>&nbsp hours /
+    <span id="minutes"></span>&nbsp minutes /
+    <span id="seconds"></span>&nbsp seconds
   <% end %>
 
 
@@ -31,7 +31,7 @@
   <hr class="border border-danger border-2 opacity-50">
   <p><%= t('.answers_variants') %>:</p>
 
-  <%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
+  <%= form_with url: test_passing_path(@test_passing), local: true, class: 'test-passing-form', method: :put do |form| %>
     <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers,
       :id, :body, include_hidden: false do |box| %>
       <p>
