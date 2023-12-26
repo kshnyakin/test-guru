@@ -7,7 +7,18 @@
     <% @test_passing.test.questions.each do |question| %>
       <%= content_tag :span, "", class: "progress-bar", data: { question_id: question.id } %>
     <% end %>
+
   </div>
+  <%= content_tag :div, class: 'timer-container', data: {
+    test_passing_started_at: @test_passing.created_at.to_s,
+    test_duration_sec: @test_passing.test.duration_min * 60
+    } do %>
+    До окончания теста осталось:
+    <span id="days"></span>days
+    <span id="hours"></span>hours
+    <span id="minutes"></span>minutes
+    <span id="seconds"></span>seconds
+  <% end %>
 
 
   <%= question_informator(@test_passing) %>
