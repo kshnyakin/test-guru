@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :gists, only: :create
 
   namespace :admin do
-    resources :badges, only: %i[show edit update new create]
+    resources :badges, only: %i[show index edit update new create]
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do

@@ -16,20 +16,7 @@
 
 <div class="row">
   <h3>Шаблоны наград</h3>
-  <% if @badges.present? %>
-    <table class="table table-hover">
-      <tr>
-        <th>Title</th>
-        <th>Issuance_type</th>
-        <th>img_path</th>
-        <th colspan='2'><%= t('.actions') %></th>
-      </tr>
-      <%= render @badges %>
-    </table>
-  <% else %>
-    <p>No BadgeTemplates yet</p>
-  <% end %>
-  <p><%= link_to t('.create_badge'), new_admin_badge_path, class: 'btn btn-primary' %></p>
+  <p><%= link_to t('.badges_list'), admin_badges_path %></p>
 </div>
 
 <%= render 'shared/errors', resource: @test %>

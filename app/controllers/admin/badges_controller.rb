@@ -7,6 +7,10 @@ class Admin::BadgesController < Admin::BaseController
     @badge = Badge.find(params[:id])
   end
 
+  def index
+    @badges = Badge.all
+  end
+
   def new
     @badge = Badge.new
   end
