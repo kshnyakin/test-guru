@@ -36,23 +36,23 @@ admin_user =
 # Создание тестов
 ruby_test, java_test =
   backend_category.tests.create!([
-                                   { title: 'Ruby', level: 1, author: ivanov_user },
-                                   { title: 'Java', level: 2, author: petrov_user }
+                                   { title: 'Ruby', level: 1, author: ivanov_user, duration_min: 5 },
+                                   { title: 'Java', level: 2, author: petrov_user, duration_min: 5 }
                                  ])
 angular_test, bulma_test =
   frontend_category.tests.create!([
-                                    { title: 'Angular', level: 3, author: sidorov_user },
-                                    { title: 'Bulma', level: 1, author: ivanov_user }
+                                    { title: 'Angular', level: 3, author: sidorov_user, duration_min: 5 },
+                                    { title: 'Bulma', level: 1, author: ivanov_user, duration_min: 5 }
                                   ])
 kubernetis_test, gitlab_test =
   devops_category.tests.create!([
                                   { title: 'Kubernetis', level: 2,
-                                    author: petrov_user },
+                                    author: petrov_user, duration_min: 5 },
                                   { title: 'Gitlab', level: 3,
-                                    author: sidorov_user }
+                                    author: sidorov_user, duration_min: 5 }
                                 ])
 jira_test = management_category.tests.create!(
-  { title: 'Jira', level: 4, author: ivanov_user }
+  { title: 'Jira', level: 4, author: ivanov_user, duration_min: 5 }
 )
 
 # Создание вопросов

@@ -2,7 +2,10 @@
 <p>
   <%= t('.category') %>: <%= @test.category.title %><br>
   <%= t('.test_author') %>: <%= @test.author.first_name %> (<%= @test.author.email %>)<br>
-  <%= t('.complexity') %>: <%= @test.level %>
+  <%= t('.complexity') %>: <%= @test.level %><br>
+  <% if @test.duration_min.present? %>
+    <%= t('.duration_min') %>: <%= @test.duration_min %>
+  <% end %>
 </p>
 <p><%= t('.questions_list') %>:</p>
 <% if @test.questions.present? %>
@@ -10,7 +13,6 @@
 <% else %>
   <p><%= t('.no_questions_yet') %></p>
 <% end %>
-
 <p>
   <%= link_to t('.add_question'), new_admin_test_question_path(@test) %> |
   <%= link_to t('.edit_test'), edit_admin_test_path(@test) %> |

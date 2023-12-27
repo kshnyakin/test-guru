@@ -52,6 +52,7 @@ en:
         create_test: "Create test"
         title: "Title"
         category: "Category"
+        duration_min: "Test duration (minutes)"
         questions_size: "Questions size"
         actions: "Actions"
         no_questions_yet: "No created tests in system yet"
@@ -70,6 +71,7 @@ en:
         delete_confirmation: "Are you shure want to delete test: '%{test_title} ?"
       show:
         category: "Category"
+        duration_min: "Test duration (minutes)"
         test_author: "Author"
         complexity: "Complexity"
         questions_list: "Questions list"

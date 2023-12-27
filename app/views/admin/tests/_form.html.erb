@@ -9,6 +9,9 @@
 
   <%= form.label :category_id %><br>
   <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %><br>
+
+  <%= form.label :duration_min %><br>
+  <%= form.number_field :duration_min %><br>
   
   <p><%= form.submit %></p>
 <% end %>

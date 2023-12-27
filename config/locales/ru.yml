@@ -19,6 +19,7 @@ ru:
       question_info_string: "Вопрос № %{current_question} из %{total_questions}"
       passing_success: "Поздравляем с прохождением теста! Процентр прохождения: %{passing_percentage}%."
       passing_fail: "Сожалеем, но тест не пройден! Процент прохождения: %{passing_percentage}%."
+  
   shared:
     nav:
       login_link: "Войти"
@@ -55,6 +56,7 @@ ru:
         create_test: "Создать тест"
         title: "Название"
         category: "Категория"
+        duration_min: "Продолжительность теста (мин)"
         questions_size: "Количество вопросов"
         actions: "Действия"
         no_questions_yet: "В настоящий момент в системе не создано ни одного теста"
@@ -69,6 +71,7 @@ ru:
         delete_confirmation: "Вы действительно хотите удалить тест: '%{test.title} ?"
       show:
         category: "Категория"
+        duration_min: "Продолжительность теста (минут)"
         test_author: "Автор"
         complexity: "Сложность"
         questions_list: "Список вопросов теста"
@@ -99,6 +102,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест в системе TestGuru!"
+  
   users:
     passwords:
       new:
@@ -124,6 +128,7 @@ ru:
         forgot_password: "Забыли пароль?"
         not_recieve_confirmation_instructions: "Не получили инструкции по подтверждению?"
         not_recieve_unlock_instructions: "Не получили инструкции по разблокировке?"
+  
   tests:
     index:
       header: 'Список тестов, доступных в системе'
@@ -139,6 +144,7 @@ ru:
       gist_user_email: "Пользователь (email)" 
     test:
       start_button: "Начать прохождение теста"
+  
   test_passings:
     result:
       back_to_tests_list: "Вернуться к списку тестов"
@@ -152,6 +158,7 @@ ru:
       current_question: "Текущий вопрос: %{question_title}"
       answers_variants: "Варианты ответов"
       next_question_button: "Следующий вопрос"
+  
   gists:
     success: "Gist успешно сохранен (<a href='%{url}'>ссылка на gist</a>)"
     failure: "При сохранении Gist произошла ошибка"
