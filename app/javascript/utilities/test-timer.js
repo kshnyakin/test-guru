@@ -26,10 +26,10 @@ document.addEventListener('turbolinks:load', function() {
       
       } else {
         
-        var seconds = Math.floor(difference / 1000);
-        var minutes = Math.floor(seconds / 60);
-        var hours = Math.floor(minutes / 60);
-        var days = Math.floor(hours / 24);
+        let seconds = Math.floor(difference / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
     
         hours %= 24;
         minutes %= 60;
