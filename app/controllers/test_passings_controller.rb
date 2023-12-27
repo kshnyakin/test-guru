@@ -9,6 +9,7 @@ class TestPassingsController < ApplicationController
   def update
     @test_passing.accept!(update_params)
     if @test_passing.completed?
+      handle_completed_passing
       TestsMailer.completed_test(@test_passing).deliver_now
       redirect_to result_test_passing_path(@test_passing)
     else
@@ -26,5 +27,9 @@ class TestPassingsController < ApplicationController
 
   def update_params
     params[:answer_ids]
+  end
+
+  def handle_completed_passing
+    BadgeAwardProcessing.new(current_user, @test_passing).call
   end
 end

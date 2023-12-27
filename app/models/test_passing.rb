@@ -11,6 +11,7 @@ class TestPassing < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions_counter += 1 if correct_answer?(answer_ids)
+    self.successful = true if successful?
     save!
   end
 
@@ -48,7 +49,7 @@ class TestPassing < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.id).first if current_question
   end
 
   def define_current_question_number

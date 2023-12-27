@@ -5,6 +5,7 @@ Answer.destroy_all
 Question.destroy_all
 Test.destroy_all
 User.destroy_all
+Badge.destroy_all
 Category.destroy_all
 
 # Создание категорий
@@ -30,8 +31,7 @@ ivanov_user, petrov_user, sidorov_user =
 # Создание администратора
 admin_user =
   Admin.create!({ first_name: 'Admin', last_name: 'Willis', email: 'ak@devpull.ru', login: 'admin',
-                   password: 'Jsfi347rfub8', confirmed_at: Time.current
-                })
+                  password: 'Jsfi347rfub8', confirmed_at: Time.current })
 
 # Создание тестов
 ruby_test, java_test =
@@ -157,3 +157,25 @@ sidorov_user.test_passings.create!([
                                      { test: ruby_test, current_question: ruby_test.questions.first },
                                      { test: java_test, current_question: java_test.questions.first }
                                    ])
+
+# Создание бейджей
+Badge.create!(
+  name: 'All tests by Backend category',
+  award_type: 'all_tests_by_category_id',
+  award_condition: Category.find_by(title: 'Backend').id,
+  img_path: 'badges/category_badge.jpg'
+)
+
+Badge.create!(
+  name: 'All tests with 2 level of complexity',
+  award_type: 'all_tests_by_level',
+  award_condition: 2,
+  img_path: 'badges/level_two_badge.jpg'
+)
+
+Badge.create!(
+  name: 'Test from 1 attempt',
+  award_type: 'test_by_attempts_number',
+  award_condition: 1,
+  img_path: 'badges/attempts_one_badge.jpg'
+)

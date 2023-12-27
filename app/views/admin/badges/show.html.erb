@@ -1,0 +1,14 @@
+<h1>Просмотр шаблона награды '<%= @badge.name %>':</h1>
+<hr>
+<p>
+  Title: <%= @badge.name %><br>
+  Award type: <%= @badge.award_type %><br>
+  Award condition: <%= @badge.award_condition %><br>
+  Image: <div class="badge-image"><%= image_tag(@badge.img_path) %></div>
+</p>
+
+<hr>
+<p>
+  <%= link_to t('.back_to_list'), admin_tests_path %> |
+  <%= link_to t('.edit'), edit_admin_badge_path(@badge)%> |
+</p>

@@ -13,6 +13,10 @@ class User < ApplicationRecord
            foreign_key: 'author_id',
            dependent: :destroy,
            inverse_of: :author
+
+  has_many :issued_awards
+  has_many :badges, through: :issued_awards
+
   has_many :test_passings, dependent: :destroy
   has_many :tests, through: :test_passings
   has_many :gists, dependent: :destroy

@@ -1,0 +1,6 @@
+<h2> Редактирование награды: <%= @badge.name %> </h2>
+
+<%= render 'form', 
+  model: @badge,
+  action_url: admin_badge_path(@badge)
+%>

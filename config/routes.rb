@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   get  '/feedback',          to: 'feedback#new'
   post '/feedback',          to: 'feedback#create'
   get  '/feedback-complete', to: 'feedback#success'
-  
+
   devise_for :users,
              path: :gurus,
              path_names: { sign_in: :login, sign_out: :logout },
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
     post :start, on: :member
   end
 
+  resources :badges, only: :index
+
   resources :test_passings, only: %i[show update] do
     get :result, on: :member
   end
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   resources :gists, only: :create
 
   namespace :admin do
+    resources :badges, only: %i[show index edit update new create]
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do
