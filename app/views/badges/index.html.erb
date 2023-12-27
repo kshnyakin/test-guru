@@ -1,0 +1,35 @@
+<div class="row">
+
+  <h3> Available Badges to Award</h3>
+
+  <% if @badges.present? %>
+    <table class="table table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Award type</th>
+        <th>Award condition</th>
+        <th>img</th>
+      </tr>
+    <%= render @badges %>
+    </table>  
+  <% else %>
+    <p>No templates yet</p>
+  <% end %>
+
+  <h3>Badges list</h3>
+
+  <% if @issued_awards.present? %>
+    <table class="table table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Award type</th>
+        <th>Award condition</th>
+        <th>Created_at</th>
+        <th>Ing</th>
+      </tr>
+    <%= render "/shared/taken_award", issued_awards: @issued_awards %>
+    </table>  
+  <% else %>
+    <p>No awarded badges yet</p>
+  <% end %>
+<div>

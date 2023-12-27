@@ -85,7 +85,11 @@ en:
         edit: "Edit"
         delete: "Delete"
         delete_confirmation: "Are you shure want to delete question: '%{question_title} ?"
-  
+    badges:
+      new:
+        header: Create new badge
+
+
   feedback:
     new:
       submit: "Send message"
@@ -119,6 +123,7 @@ en:
       header: "List of available tests in system"
       title: "Title"
       category: "Category"
+      complexity_level: "Complexity level"
       questions_size: "Questions size"
       actions: "Actions"
       no_questions_yet: "No created tests in system yet"

@@ -1,0 +1,35 @@
+<%= form_with model: model, url: action_url do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br>
+
+  <% if model.award_type.nil? %>
+    <%= form.label :award_type %><br>
+    <%= form.select :award_type, [:all_tests_by_level, :test_by_attempts_number, :all_tests_by_category_id] %><br>
+
+    <%= form.label :award_condition %><br>
+    <%= form.text_field :award_condition %><br>
+  <% else %>
+    <%= form.label :award_type %><br>
+    <%= form.text_field :award_type, disabled: true %><br>
+
+    <% if model.award_type == 'all_tests_by_level' %>
+      <%= form.label :level %><br>
+      <%= form.text_field :award_condition %><br>
+    <% end %>
+
+    <% if model.award_type == 'all_tests_by_category_id' %>
+      <%= form.label :category_id %><br>
+      <%= form.collection_select :award_condition, Category.all, :id, :title, prompt: true %><br>
+    <% end %>
+
+    <% if model.award_type == 'test_by_attempts_number' %>
+      <%= form.label :attempts_number %><br>
+      <%= form.text_field :award_condition %><br>
+    <% end %>
+  <% end %>
+
+  <%= form.label :img_path %><br>
+  <%= form.text_field :img_path %><br>
+
+  <p><%= form.submit %></p>
+<% end %>
